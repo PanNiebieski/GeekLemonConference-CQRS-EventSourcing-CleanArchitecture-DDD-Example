@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.11.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeekLemonConference.Application.EventSourcing\GeekLemonConference.Application.EventSourcing.csproj" />
+    <ProjectReference Include="..\GeekLemonConference.DomainEvents\GeekLemonConference.DomainEvents.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.0.7" />
+    <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeekLemon.Infrastructure.Read.SQLite\GeekLemonConference.Persistence.Dapper.SQLite.csproj" />
+    <ProjectReference Include="..\GeekLemon.Infrastructure.Write.MongoDB\GeekLemonConference.Infrastructure.EventStoreAndBus.csproj" />
+    <ProjectReference Include="..\GeekLemonConference.Application.CQRS\GeekLemonConference.Application.CQRS.csproj" />
+    <ProjectReference Include="..\GeekLemonConference.Application.EventSourcing\GeekLemonConference.Application.EventSourcing.csproj" />
+    <ProjectReference Include="..\GeekLemonConference.Infrastructure.EventStore.MongoDb\GeekLemonConference.Infrastructure.EventStorePlugin.MongoDb.csproj" />
+    <ProjectReference Include="..\GeekLemonConference.Infrastructure.EventStore.SQLite\GeekLemonConference.Infrastructure.EventStorePlugin.SQLite.csproj" />
+  </ItemGroup>
+
+</Project>

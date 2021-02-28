@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="9.5.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+
+    <ProjectReference Include="..\GeekLemonConference.Application.Common\GeekLemonConference.Application.Common.csproj" />
+
+    <ProjectReference Include="..\GeekLemonConference.Application.Contracts\GeekLemonConference.Application.Contracts.csproj" />
+
+    <ProjectReference Include="..\GeekLemonConference.Application.EventSourcing\GeekLemonConference.Application.EventSourcing.csproj" />
+  </ItemGroup>
+
+</Project>

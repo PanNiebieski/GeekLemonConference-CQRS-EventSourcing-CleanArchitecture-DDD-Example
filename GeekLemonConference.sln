@@ -1,0 +1,148 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D60894AC-36D4-4A28-8588-9221B200876B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{720A1756-323C-4863-BB2E-BD84F310E737}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AAE25209-C8F7-4156-ACCD-36A43D3425DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{BE47A2C8-BDAA-428D-8D1E-250798CF8BE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D3949890-D70D-4F1B-8820-2E1B7D9849B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Domain", "GeekLemonConference.Domain\GeekLemonConference.Domain.csproj", "{91B8B7D5-AC97-490A-9BEC-29113FBE0280}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Application.CQRS", "GeekLemonConference.Application.CQRS\GeekLemonConference.Application.CQRS.csproj", "{FBC600B7-6D01-49CD-8296-DEBED91FEAF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Application.Contracts", "GeekLemonConference.Application.Contracts\GeekLemonConference.Application.Contracts.csproj", "{BE9387D9-D28C-49E7-BDAC-C7EA21CB3E8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Infrastructure.EventStoreAndBus", "GeekLemon.Infrastructure.Write.MongoDB\GeekLemonConference.Infrastructure.EventStoreAndBus.csproj", "{4AB58FB4-849B-49F9-946D-CDFD7413E521}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Persistence.Dapper.SQLite", "GeekLemon.Infrastructure.Read.SQLite\GeekLemonConference.Persistence.Dapper.SQLite.csproj", "{FD2B3FB5-45A6-41E0-8875-5A2914C3A4E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Api", "GeekLemonConference.Api\GeekLemonConference.Api.csproj", "{8703B655-6BC4-4C33-8C50-C4311B75F7EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.UnitTests", "GeekLemonConference.Tests\GeekLemonConference.UnitTests.csproj", "{258024DF-7670-41F6-AFD8-65981F21C535}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Infrastructure.BackgroundEventHandlersServer", "GeekLemonConference.Infrastructure.BackgroundEventReciver\GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.csproj", "{87591E86-1838-4616-B8F0-FAB98BDC4183}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Application.EventSourcing", "GeekLemonConference.Application.EventSourcing\GeekLemonConference.Application.EventSourcing.csproj", "{87568480-D578-41CC-81B7-DCB754F93D10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.DomainEvents", "GeekLemonConference.DomainEvents\GeekLemonConference.DomainEvents.csproj", "{E6ED1952-47E4-47D7-8376-10CAC6184EDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Application.Common", "GeekLemonConference.Application.Common\GeekLemonConference.Application.Common.csproj", "{2823F3BC-6E41-47F7-AA40-19648151AAFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{20DC8C3A-D261-4EBE-B71D-B3C0F3DEA3A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{080B9171-8060-4493-95E5-911B9287636C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Infrastructure.EventStorePlugin.SQLite", "GeekLemonConference.Infrastructure.EventStore.SQLite\GeekLemonConference.Infrastructure.EventStorePlugin.SQLite.csproj", "{DF953F3B-CF3E-4BB4-A491-C43BEBE1B9AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Infrastructure.EventStorePlugin.MongoDb", "GeekLemonConference.Infrastructure.EventStore.MongoDb\GeekLemonConference.Infrastructure.EventStorePlugin.MongoDb.csproj", "{7A961408-3814-4B2F-A1BA-E11DA5CE67AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PluginsEventStores", "PluginsEventStores", "{384F2B37-5199-436D-8E17-4FBEF2694F69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.IntegrationTests.Persistence", "GeekLemonConference.Tests.PersistenceIntegration\GeekLemonConference.IntegrationTests.Persistence.csproj", "{8E39F2D9-493C-46A8-8595-1E3BE606B62A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Tests.Common", "GeekLemonConference.Tests.Common\GeekLemonConference.Tests.Common.csproj", "{BCBCA931-AE4D-430D-B267-00EC309083DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91B8B7D5-AC97-490A-9BEC-29113FBE0280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B8B7D5-AC97-490A-9BEC-29113FBE0280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B8B7D5-AC97-490A-9BEC-29113FBE0280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B8B7D5-AC97-490A-9BEC-29113FBE0280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC600B7-6D01-49CD-8296-DEBED91FEAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC600B7-6D01-49CD-8296-DEBED91FEAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC600B7-6D01-49CD-8296-DEBED91FEAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC600B7-6D01-49CD-8296-DEBED91FEAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE9387D9-D28C-49E7-BDAC-C7EA21CB3E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9387D9-D28C-49E7-BDAC-C7EA21CB3E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9387D9-D28C-49E7-BDAC-C7EA21CB3E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9387D9-D28C-49E7-BDAC-C7EA21CB3E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB58FB4-849B-49F9-946D-CDFD7413E521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB58FB4-849B-49F9-946D-CDFD7413E521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB58FB4-849B-49F9-946D-CDFD7413E521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB58FB4-849B-49F9-946D-CDFD7413E521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD2B3FB5-45A6-41E0-8875-5A2914C3A4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD2B3FB5-45A6-41E0-8875-5A2914C3A4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD2B3FB5-45A6-41E0-8875-5A2914C3A4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD2B3FB5-45A6-41E0-8875-5A2914C3A4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8703B655-6BC4-4C33-8C50-C4311B75F7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8703B655-6BC4-4C33-8C50-C4311B75F7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8703B655-6BC4-4C33-8C50-C4311B75F7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8703B655-6BC4-4C33-8C50-C4311B75F7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258024DF-7670-41F6-AFD8-65981F21C535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258024DF-7670-41F6-AFD8-65981F21C535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258024DF-7670-41F6-AFD8-65981F21C535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258024DF-7670-41F6-AFD8-65981F21C535}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87591E86-1838-4616-B8F0-FAB98BDC4183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87591E86-1838-4616-B8F0-FAB98BDC4183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87591E86-1838-4616-B8F0-FAB98BDC4183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87591E86-1838-4616-B8F0-FAB98BDC4183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87568480-D578-41CC-81B7-DCB754F93D10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87568480-D578-41CC-81B7-DCB754F93D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87568480-D578-41CC-81B7-DCB754F93D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87568480-D578-41CC-81B7-DCB754F93D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6ED1952-47E4-47D7-8376-10CAC6184EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6ED1952-47E4-47D7-8376-10CAC6184EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6ED1952-47E4-47D7-8376-10CAC6184EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6ED1952-47E4-47D7-8376-10CAC6184EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2823F3BC-6E41-47F7-AA40-19648151AAFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2823F3BC-6E41-47F7-AA40-19648151AAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2823F3BC-6E41-47F7-AA40-19648151AAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2823F3BC-6E41-47F7-AA40-19648151AAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF953F3B-CF3E-4BB4-A491-C43BEBE1B9AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF953F3B-CF3E-4BB4-A491-C43BEBE1B9AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF953F3B-CF3E-4BB4-A491-C43BEBE1B9AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF953F3B-CF3E-4BB4-A491-C43BEBE1B9AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A961408-3814-4B2F-A1BA-E11DA5CE67AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A961408-3814-4B2F-A1BA-E11DA5CE67AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A961408-3814-4B2F-A1BA-E11DA5CE67AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A961408-3814-4B2F-A1BA-E11DA5CE67AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E39F2D9-493C-46A8-8595-1E3BE606B62A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E39F2D9-493C-46A8-8595-1E3BE606B62A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E39F2D9-493C-46A8-8595-1E3BE606B62A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E39F2D9-493C-46A8-8595-1E3BE606B62A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D60894AC-36D4-4A28-8588-9221B200876B} = {720A1756-323C-4863-BB2E-BD84F310E737}
+		{AAE25209-C8F7-4156-ACCD-36A43D3425DB} = {720A1756-323C-4863-BB2E-BD84F310E737}
+		{BE47A2C8-BDAA-428D-8D1E-250798CF8BE4} = {720A1756-323C-4863-BB2E-BD84F310E737}
+		{91B8B7D5-AC97-490A-9BEC-29113FBE0280} = {20DC8C3A-D261-4EBE-B71D-B3C0F3DEA3A5}
+		{FBC600B7-6D01-49CD-8296-DEBED91FEAF0} = {080B9171-8060-4493-95E5-911B9287636C}
+		{BE9387D9-D28C-49E7-BDAC-C7EA21CB3E8A} = {080B9171-8060-4493-95E5-911B9287636C}
+		{4AB58FB4-849B-49F9-946D-CDFD7413E521} = {BE47A2C8-BDAA-428D-8D1E-250798CF8BE4}
+		{FD2B3FB5-45A6-41E0-8875-5A2914C3A4E0} = {BE47A2C8-BDAA-428D-8D1E-250798CF8BE4}
+		{8703B655-6BC4-4C33-8C50-C4311B75F7EB} = {D60894AC-36D4-4A28-8588-9221B200876B}
+		{258024DF-7670-41F6-AFD8-65981F21C535} = {D3949890-D70D-4F1B-8820-2E1B7D9849B0}
+		{87591E86-1838-4616-B8F0-FAB98BDC4183} = {BE47A2C8-BDAA-428D-8D1E-250798CF8BE4}
+		{87568480-D578-41CC-81B7-DCB754F93D10} = {080B9171-8060-4493-95E5-911B9287636C}
+		{E6ED1952-47E4-47D7-8376-10CAC6184EDF} = {20DC8C3A-D261-4EBE-B71D-B3C0F3DEA3A5}
+		{2823F3BC-6E41-47F7-AA40-19648151AAFD} = {080B9171-8060-4493-95E5-911B9287636C}
+		{20DC8C3A-D261-4EBE-B71D-B3C0F3DEA3A5} = {AAE25209-C8F7-4156-ACCD-36A43D3425DB}
+		{080B9171-8060-4493-95E5-911B9287636C} = {AAE25209-C8F7-4156-ACCD-36A43D3425DB}
+		{DF953F3B-CF3E-4BB4-A491-C43BEBE1B9AD} = {384F2B37-5199-436D-8E17-4FBEF2694F69}
+		{7A961408-3814-4B2F-A1BA-E11DA5CE67AE} = {384F2B37-5199-436D-8E17-4FBEF2694F69}
+		{384F2B37-5199-436D-8E17-4FBEF2694F69} = {BE47A2C8-BDAA-428D-8D1E-250798CF8BE4}
+		{8E39F2D9-493C-46A8-8595-1E3BE606B62A} = {D3949890-D70D-4F1B-8820-2E1B7D9849B0}
+		{BCBCA931-AE4D-430D-B267-00EC309083DD} = {D3949890-D70D-4F1B-8820-2E1B7D9849B0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59580AD5-8A86-43FA-9A00-3FCC8284D7F4}
+	EndGlobalSection
+EndGlobal

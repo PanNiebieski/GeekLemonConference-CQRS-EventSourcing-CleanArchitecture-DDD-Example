@@ -9,6 +9,5 @@ namespace GeekLemonConference.Domain.ValueObjects.Ids
         {
 
         }
-
     }
 }

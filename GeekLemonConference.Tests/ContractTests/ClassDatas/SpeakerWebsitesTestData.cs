@@ -24,6 +24,5 @@ namespace GeekLemonConference.Tests.ContractTests.ClassDatas
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-
     }
 }

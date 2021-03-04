@@ -31,7 +31,7 @@ namespace GeekLemonConference.Application.CQRS
                         return responseMessagesOption;
                     }
                 );
-            BaseResponse.ResponseMessagesOption = responseMessagesOption;
+            //BaseResponse.ResponseMessagesOption = responseMessagesOption;
 
             return services;
         }

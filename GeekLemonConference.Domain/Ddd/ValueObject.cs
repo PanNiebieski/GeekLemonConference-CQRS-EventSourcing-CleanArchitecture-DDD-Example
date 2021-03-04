@@ -35,7 +35,7 @@ namespace GeekLemonConference.Domain.Ddd
 
         public override int GetHashCode()
         {
-            var hash = 17;
+            var hash = 19;
             foreach (var obj in this.GetAttributesToIncludeInEqualityCheck())
                 hash = hash * 31 + (obj == null ? 0 : obj.GetHashCode());
 

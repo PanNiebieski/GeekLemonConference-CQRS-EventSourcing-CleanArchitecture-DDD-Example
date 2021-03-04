@@ -60,7 +60,5 @@ namespace GeekLemonConference.Tests.Builders
             return c;
         }
 
-
-
     }
 }

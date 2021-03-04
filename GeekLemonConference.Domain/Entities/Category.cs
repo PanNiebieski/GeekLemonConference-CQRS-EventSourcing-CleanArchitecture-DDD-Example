@@ -15,8 +15,6 @@ namespace GeekLemonConference.Domain.Entities
 
         public string WhatWeAreLookingFor { get; init; }
 
-
-
         public Category(CategoryId Id, string name, string displayName,
             string whatWeAreLookingFor) : base()
         {
@@ -25,7 +23,6 @@ namespace GeekLemonConference.Domain.Entities
             DisplayName = displayName;
             UniqueId = CategoryUniqueId.NewUniqueId();
             WhatWeAreLookingFor = whatWeAreLookingFor;
-            //Version = 1;
         }
 
         public void InjectUniqueId(CategoryUniqueId uniqueId)
@@ -33,29 +30,17 @@ namespace GeekLemonConference.Domain.Entities
             this.UniqueId = uniqueId;
         }
 
-        //    public Category(CategoryId Id, string name, string displayName,
-        //string whatWeAreLookingFor, CategoryUniqueId uniqueId)
-        //    {
-        //        this.Id = Id;
-        //        Name = name;
-        //        DisplayName = displayName;
-        //        UniqueId = uniqueId;
-        //        WhatWeAreLookingFor = whatWeAreLookingFor;
-        //        //Version = 1;
-        //    }
-
         public Category(CategoryId Id)
         {
             this.Id = Id;
             UniqueId = CategoryUniqueId.NewUniqueId();
-            //Version = 1;
+
         }
 
         public Category()
         {
             UniqueId = CategoryUniqueId.NewUniqueId();
             this.Id = CategoryId.Empty();
-            //Version = 1;
         }
 
         public CategoryIds Ids()

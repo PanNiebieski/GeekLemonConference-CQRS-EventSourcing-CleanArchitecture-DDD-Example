@@ -25,12 +25,9 @@ namespace GeekLemonConference.Domain.ValueObjects.Ids
             yield return Value;
         }
 
-
         public static CategoryId Empty()
         {
             return new CategoryId(0);
         }
-
-
     }
 }

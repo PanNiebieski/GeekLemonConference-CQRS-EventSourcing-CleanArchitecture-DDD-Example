@@ -11,7 +11,7 @@ using System.Text;
 using GeekLemonConference.Infrastructure.EventStoreAndBus;
 using Microsoft.Extensions.Configuration;
 
-namespace GeekLemon.Infrastructure.Write.MongoDB.Bus
+namespace GeekLemonConference.Infrastructure.EventStoreAndBus.Bus
 {
     public class GeekLemonEventPublisher : IEventPublisher
     {
@@ -21,7 +21,7 @@ namespace GeekLemon.Infrastructure.Write.MongoDB.Bus
         {
             connectionFactory = new ConnectionFactory();
 
-            var builder = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
+            var builder = new ConfigurationBuilder()
             .SetBasePath(env.ContentRootPath)
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
             .AddEnvironmentVariables();

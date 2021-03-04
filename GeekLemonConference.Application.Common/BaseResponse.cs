@@ -8,8 +8,6 @@ namespace GeekLemonConference.Application.Common
 {
     public abstract class BaseResponse
     {
-        public static IResponseMessagesOption ResponseMessagesOption { get; set; }
-
         public ResponseStatus Status { get; set; }
 
         public string StatusInfo
@@ -74,9 +72,9 @@ namespace GeekLemonConference.Application.Common
                 if (status.Reason == Reason.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore)
                     Status = ResponseStatus.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore;
 
-                Message = status.MessageForClient;
-                if (ResponseMessagesOption.ShowDeveloperMessages)
-                    Message += status.MessageForDeveloper;
+                //Message = status.MessageForClient;
+                //if (ResponseMessagesOption.ShowDeveloperMessages)
+                //    Message += status.MessageForDeveloper;
             }
             else
             {
@@ -110,8 +108,8 @@ namespace GeekLemonConference.Application.Common
 
                 Message = message;
                 Message += status.MessageForClient;
-                if (ResponseMessagesOption.ShowDeveloperMessages)
-                    Message += status.MessageForDeveloper;
+                //if (ResponseMessagesOption.ShowDeveloperMessages)
+                //    Message += status.MessageForDeveloper;
             }
             else
             {
@@ -156,29 +154,5 @@ namespace GeekLemonConference.Application.Common
             else
                 Status = ResponseStatus.Success;
         }
-    }
-
-
-    public enum ResponseStatus
-    {
-        Success = 0,
-        NotFoundInDataBase = 1,
-        BadQuery = 2,
-        ValidationError = 3,
-        DataBaseError = 4,
-        BussinesLogicError = 5,
-        EventStoreError = 6,
-        ConcurrencyOlderVersionSendedWhenNewerIsInEventStore = 7,
-        AggregateOrEventMissingIdInEventStore = 8,
-        AggregateNotFoundInEventStore = 9
-    }
-
-    public enum WhatHTTPCodeShouldBeRetruned
-    {
-        Forbid,
-        NotFound,
-        BadRequest,
-        MethodFailure,
-        Ok
     }
 }

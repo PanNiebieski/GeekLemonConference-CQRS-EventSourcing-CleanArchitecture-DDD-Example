@@ -12,14 +12,6 @@ namespace GeekLemonConference.Application.EventSourcing
         public string Type { get; set; }
         public string Id { get; set; }
 
-        //public string Value
-        //{
-        //    get
-        //    {
-        //        return Type + ":" + Id;
-        //    }
-        //}
-
         protected override IEnumerable<object> GetAttributesToIncludeInEqualityCheck()
         {
             yield return Type;

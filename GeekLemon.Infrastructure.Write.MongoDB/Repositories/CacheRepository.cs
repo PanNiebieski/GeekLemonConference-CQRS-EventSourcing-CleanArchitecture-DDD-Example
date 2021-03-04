@@ -6,7 +6,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Runtime.Caching;
 
-namespace GeekLemonConference.Infrastructure.EventStoreAndBus.Repositories.EventStore
+namespace GeekLemonConference.Infrastructure.EventStoreAndBus.Repositories
 {
     public class CacheRepository : IEventRepository
     {
@@ -14,6 +14,7 @@ namespace GeekLemonConference.Infrastructure.EventStoreAndBus.Repositories.Event
         private readonly IEventStore _eventStore;
         private readonly MemoryCache _cache;
         private readonly Func<CacheItemPolicy> _policyFactory;
+
         private static readonly ConcurrentDictionary<string, object> _locks =
             new ConcurrentDictionary<string, object>();
 

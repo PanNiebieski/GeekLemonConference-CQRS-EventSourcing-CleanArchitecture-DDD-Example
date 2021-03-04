@@ -203,11 +203,14 @@ namespace GeekLemonConference.Tests.DomainTests
         [Fact]
         public void CallForSpeech_WithoutScore_NOTEvaluatedByMachine_CanBeRejected()
         {
+            int catid = 8888;
             var cfs = GivenCallForSpeech()
+                .WithCategory(cat => cat.WithId(catid))
                 .NotEvaluated()
                 .Build();
 
             var judge = GivenJudge()
+                .WithCategory(cat => cat.WithId(catid))
                 .Build();
 
             cfs.Reject(judge);

@@ -1,7 +1,7 @@
 ﻿using GeekLemon.Infrastructure.Write.MongoDB;
-using GeekLemon.Infrastructure.Write.MongoDB.Bus;
 using GeekLemonConference.Application.Contracts.Repository;
 using GeekLemonConference.Application.EventSourcing.Contracts;
+using GeekLemonConference.Infrastructure.EventStoreAndBus.Bus;
 using GeekLemonConference.Infrastructure.EventStoreAndBus.Repositories.EventStore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

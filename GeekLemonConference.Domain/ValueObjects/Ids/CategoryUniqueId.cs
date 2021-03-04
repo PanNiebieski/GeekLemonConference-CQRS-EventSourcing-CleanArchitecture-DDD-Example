@@ -1,5 +1,4 @@
 ﻿using GeekLemonConference.Domain.Ddd;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +11,12 @@ namespace GeekLemonConference.Domain.ValueObjects.Ids
     {
         public Guid Value { get; set; }
 
-
         public CategoryUniqueId(Guid value)
         {
             Value = value;
         }
 
-        [JsonConstructor]
+        //[JsonConstructor]
         public CategoryUniqueId()
         {
             Value = Guid.NewGuid();
@@ -45,6 +43,5 @@ namespace GeekLemonConference.Domain.ValueObjects.Ids
         }
 
         public override string ValueInString() => Value.ToString();
-
     }
 }

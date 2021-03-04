@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GeekLemonConference.Tests.Asserts
 {
-    public static class LoanApplicationAssertExtension
+    public static class CallForSpeechAssertExtension
     {
         public static CallForSpeechAssert Should(this CallForSpeech cfs)
             => new CallForSpeechAssert(cfs);

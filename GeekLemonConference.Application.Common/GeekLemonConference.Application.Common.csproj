@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ResponseMessagesOption.cs" />
+    <Compile Remove="SwaggerExcludeAttribute.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="9.5.1" />
   </ItemGroup>
 

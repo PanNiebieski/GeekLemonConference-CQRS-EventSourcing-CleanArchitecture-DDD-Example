@@ -19,10 +19,6 @@ namespace GeekLemonConference.Domain.Entities
         //Stworzenie listy właściwości był debilnym pomysłem
         //public List<Email> Emails { get; set; }
         public DateTime Birthdate { get; set; }
-        //public List<Phone> Phones { get; set; }
-
-        //public Contact ContactForConference { get; set; }
-        //public Contact ContactForSpeakers { get; set; }
 
         public Judge(Login login, Password password, Name name, Category category)
         {

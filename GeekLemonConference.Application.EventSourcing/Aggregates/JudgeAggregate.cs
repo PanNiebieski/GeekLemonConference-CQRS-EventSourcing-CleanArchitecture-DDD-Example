@@ -20,9 +20,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
 
         public Category Category { get; private set; }
 
-        public List<Email> Emails { get; private set; }
         public DateTime Birthdate { get; private set; }
-        public List<Phone> Phones { get; private set; }
         public JudgeUniqueId UniqueId { get; private set; }
 
         private void Apply(JudgeCreatedEvent e)

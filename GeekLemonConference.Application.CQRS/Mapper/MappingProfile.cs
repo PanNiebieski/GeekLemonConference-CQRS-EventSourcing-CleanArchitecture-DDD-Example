@@ -86,15 +86,6 @@ namespace GeekLemonConference.Application.CQRS.Mapper
             CreateMap<string, Login>().ConstructUsing(c => new Login(c));
             CreateMap<string, Password>().ConstructUsing(c => new Password(c));
 
-            CreateMap<PhoneDto, Phone>()
-                .ForMember(s => s.Type, o => o.MapFrom(k => k.Type.ParseEnum<PhoneType>()));
-            CreateMap<Phone, PhoneDto>()
-                .ForMember(s => s.Type, o => o.MapFrom(k => k.Type.ToString()));
-
-            CreateMap<EmailDto, Email>()
-                .ForMember(s => s.Type, o => o.MapFrom(k => k.Type.ParseEnum<EmailType>()));
-            CreateMap<Email, EmailDto>()
-                .ForMember(s => s.Type, o => o.MapFrom(k => k.Type.ToString()));
 
             CreateMap<Judge, JudgeDto>()
                 .ForMember(s => s.Id, o => o.MapFrom(k => k.Id.Value));

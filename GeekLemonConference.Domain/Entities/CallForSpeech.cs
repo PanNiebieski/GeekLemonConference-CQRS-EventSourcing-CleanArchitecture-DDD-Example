@@ -95,24 +95,6 @@ namespace GeekLemonConference.Domain.Entity
             }
         }
 
-        public ExecutionStatus TryEvaluate(ScoringRules rules)
-        {
-            if (Status != CallForSpeechStatus.New)
-            {
-                return ExecutionStatus.LogicError("Cannot accept application that isn't new");
-            }
-
-            Score = rules.Evaluate(this);
-            if (!Score.IsRed())
-            {
-                Status = CallForSpeechStatus.EvaluatedByMachine;
-            }
-            else
-            {
-                Status = CallForSpeechStatus.Rejected;
-            }
-            return ExecutionStatus.LogicOk();
-        }
 
         public void PreliminaryAccept(Judge decisionBy)
         {
@@ -139,36 +121,6 @@ namespace GeekLemonConference.Domain.Entity
             Status = CallForSpeechStatus.PreliminaryAcceptedByJudge;
             PreliminaryDecision = new Decision(AppTime.Now(), decisionBy);
         }
-
-        public ExecutionStatus TryPreliminaryAccept(Judge decisionBy)
-        {
-            if (Status == CallForSpeechStatus.PreliminaryAcceptedByJudge)
-            {
-                return ExecutionStatus.
-                    LogicError("You already PreliminaryAcceptedByJudge this CallForSpeech");
-            }
-
-            if (Status != CallForSpeechStatus.EvaluatedByMachine)
-            {
-                return ExecutionStatus.LogicError("Cannot accept application that WASNT'T in EvaluatedByMachine");
-            }
-
-            if (Score == null)
-            {
-                return ExecutionStatus.LogicError("Cannot accept application before scoring");
-            }
-
-            if (!decisionBy.CanAccept(this.Category.Id))
-            {
-                return ExecutionStatus.
-                    LogicError("Judge is from diffrent category. Can't Accept");
-            }
-
-            Status = CallForSpeechStatus.PreliminaryAcceptedByJudge;
-            PreliminaryDecision = new Decision(AppTime.Now(), decisionBy);
-            return ExecutionStatus.LogicOk();
-        }
-
 
 
         public void Accept(Judge decisionBy)
@@ -202,60 +154,6 @@ namespace GeekLemonConference.Domain.Entity
             FinalDecision = new Decision(AppTime.Now(), decisionBy);
         }
 
-        public ExecutionStatus TryAccept(Judge decisionBy)
-        {
-            if (Status == CallForSpeechStatus.AcceptedByJudge)
-            {
-                return ExecutionStatus.
-                    LogicError("You already Accepted this CallForSpeech");
-            }
-
-            if (Status == CallForSpeechStatus.Rejected)
-            {
-                return ExecutionStatus.
-                    LogicError("Cannot accept application that is already rejected");
-            }
-
-            if (Status != CallForSpeechStatus.PreliminaryAcceptedByJudge)
-            {
-                return ExecutionStatus.
-                    LogicError("Cannot accept application that wasn't PreliminaryAccepted FIRST");
-            }
-
-            if (Score == null)
-            {
-                return ExecutionStatus.
-                    LogicError("Cannot accept application before scoring");
-            }
-
-            if (!decisionBy.CanAccept(this.Category.Id))
-            {
-                return ExecutionStatus.
-                    LogicError("Judge is from diffrent category. Can't Accept");
-            }
-
-            Status = CallForSpeechStatus.AcceptedByJudge;
-            FinalDecision = new Decision(AppTime.Now(), decisionBy);
-            return ExecutionStatus.LogicOk();
-        }
-
-
-        //public void AcceptWithProblems(Judge decisionBy)
-        //{
-        //    if (Status != CallForSpeechStatus.PreliminaryAcceptedByJudge)
-        //    {
-        //        throw new ApplicationException("Cannot accept application that wasn't PreliminaryAccepted FIRST");
-        //    }
-
-        //    if (Score == null)
-        //    {
-        //        throw new ApplicationException("Cannot accept application before scoring");
-        //    }
-
-        //    Status = CallForSpeechStatus.AcceptedByJudgeButHasProblems;
-        //    FinalDecision = new Decision(AppTime.Now(), decisionBy);
-        //}
-
         public void Reject(Judge decisionBy)
         {
             if (Status == CallForSpeechStatus.Rejected ||
@@ -273,26 +171,7 @@ namespace GeekLemonConference.Domain.Entity
             FinalDecision = new Decision(AppTime.Now(), decisionBy);
         }
 
-        public ExecutionStatus TryReject(Judge decisionBy)
-        {
-            if (Status == CallForSpeechStatus.Rejected ||
-                Status == CallForSpeechStatus.AcceptedByJudge)
-            {
-                return ExecutionStatus.
-                    LogicError("Cannot reject application that is already accepted or rejected");
-            }
 
-            if (!decisionBy.CanAccept(this.Category.Id))
-            {
-                return ExecutionStatus.
-                    LogicError("Judge is from diffrent category. Can't Accept");
-            }
-
-            Status = CallForSpeechStatus.Rejected;
-            FinalDecision = new Decision(AppTime.Now(), decisionBy);
-
-            return ExecutionStatus.LogicOk();
-        }
 
         public CallForSpeechIds Ids()
         {

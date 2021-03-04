@@ -20,25 +20,7 @@ namespace GeekLemon.Persistence.Dapper.SQLite.Map
         public JudgeTemp Convert(Judge source, JudgeTemp destination, ResolutionContext context)
         {
             var birthdate = source.Birthdate.ToString("dd-MM-yyyy");
-            ValuesFromJugde v = new ValuesFromJugde();
 
-            //foreach (var item in source.Emails)
-            //{
-            //    if (item.Type == EmailType.FORCONFERENCE)
-            //        v.EmailForeConference = item.Value;
-
-            //    if (item.Type == EmailType.FORSPEAKERS)
-            //        v.EmailForSpeakers = item.Value;
-            //}
-
-            //foreach (var item in source.Phones)
-            //{
-            //    if (item.Type == PhoneType.FORCONFERENCE)
-            //        v.PhoneForConference = "(" + item.AreaCode + ")" + item.Number;
-
-            //    if (item.Type == PhoneType.FORSPEAKERS)
-            //        v.PhoneForSpekers = "(" + item.AreaCode + ")" + item.Number;
-            //}
 
             int id = 0;
 
@@ -55,10 +37,6 @@ namespace GeekLemon.Persistence.Dapper.SQLite.Map
                 Id = id,
                 BirthDate = birthdate,
                 CategoryId = source.Category.Id.Value,
-                Email_ForeConference = v.EmailForeConference,
-                Email_ForSpeakers = v.EmailForSpeakers,
-                Phone_ForConference = v.PhoneForConference,
-                Phone_ForSpekers = v.PhoneForSpekers,
                 Login = source.Login,
                 Name_First = source.Name.First,
                 Name_Last = source.Name.Last,

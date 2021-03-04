@@ -19,9 +19,9 @@ namespace GeekLemonConference.Application.CQRS.Judges.Queries.GetJudge
 
         public CategoryDto Category { get; set; }
 
-        public List<EmailDto> Emails { get; set; }
+
         public DateTime Birthdate { get; set; }
-        public List<PhoneDto> Phones { get; set; }
+
 
         public int Version { get; set; }
 

@@ -57,6 +57,9 @@ namespace GeekLemonConference.Persistence.Dapper.SQLite.Methods.Judges
             }
             catch (Exception ex)
             {
+                if (ExecutionFlow.Options.ThrowExceptions)
+                    throw;
+
                 return ExecutionStatus<Judge>.DbError(ex);
             }
         }

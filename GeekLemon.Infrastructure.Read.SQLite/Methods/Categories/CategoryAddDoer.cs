@@ -72,6 +72,9 @@ namespace GeekLemonConference.Persistence.Dapper.SQLite.Methods.Categories
             }
             catch (Exception ex)
             {
+                if (ExecutionFlow.Options.ThrowExceptions)
+                    throw;
+
                 return ExecutionStatus
                     <CategoryIds>
                     .DbError(ex);

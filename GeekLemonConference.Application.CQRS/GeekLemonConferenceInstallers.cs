@@ -22,15 +22,15 @@ namespace GeekLemonConference.Application.CQRS
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddSingleton<IScoringRulesFactory, ScoringRulesFactory>();
 
-            var responseMessagesOption = new ResponseMessagesOption();
+            //var responseMessagesOption = new ResponseMessagesOption();
 
-            services.AddSingleton<IResponseMessagesOption, ResponseMessagesOption>
-                (
-                    (services) =>
-                    {
-                        return responseMessagesOption;
-                    }
-                );
+            //services.AddSingleton<IResponseMessagesOption, ResponseMessagesOption>
+            //    (
+            //        (services) =>
+            //        {
+            //            return responseMessagesOption;
+            //        }
+            //    );
             //BaseResponse.ResponseMessagesOption = responseMessagesOption;
 
             return services;

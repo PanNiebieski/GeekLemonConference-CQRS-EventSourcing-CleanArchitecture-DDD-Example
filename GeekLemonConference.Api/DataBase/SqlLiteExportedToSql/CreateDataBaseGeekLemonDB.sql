@@ -8,23 +8,6 @@ CREATE TABLE IF NOT EXISTS "Categories" (
 	"WhatWeAreLookingFor"	TEXT,
 	PRIMARY KEY("ID" AUTOINCREMENT)
 );
-CREATE TABLE IF NOT EXISTS "Judges" (
-	"ID"	INTEGER NOT NULL UNIQUE,
-	"UniqueId"	TEXT NOT NULL,
-	"Version"	INTEGER NOT NULL,
-	"Login"	TEXT NOT NULL,
-	"Password"	TEXT NOT NULL,
-	"BirthDate"	NUMERIC NOT NULL,
-	"Name_First"	TEXT NOT NULL,
-	"Name_Last"	TEXT NOT NULL,
-	"Email_ForeConference"	TEXT,
-	"Email_ForSpeakers"	TEXT,
-	"Phone_ForSpekers"	TEXT,
-	"Phone_ForConference"	TEXT,
-	"CategoryID"	INTEGER NOT NULL,
-	CONSTRAINT "FK_CategoryId_Judges" FOREIGN KEY("CategoryID") REFERENCES "Categories",
-	CONSTRAINT "PK_Judges_KEY" PRIMARY KEY("ID" AUTOINCREMENT)
-);
 CREATE TABLE IF NOT EXISTS "CallForSpeakes" (
 	"Id"	INTEGER NOT NULL UNIQUE,
 	"UniqueId"	TEXT NOT NULL,
@@ -64,12 +47,25 @@ CREATE TABLE IF NOT EXISTS "CallForSpeakes" (
 	"Score_Score"	INTEGER,
 	"Score_RejectExplanation"	TEXT,
 	"Score_WarringExplanation"	TEXT,
-	CONSTRAINT "FK_CategoryID_CallForSpeakes" FOREIGN KEY("CategoryId") REFERENCES "Categories",
 	CONSTRAINT "FK_JudgeID_CallForSpeech_PreminaryDecision_DecysionBy" FOREIGN KEY("PreliminaryDecision_DecisionBy") REFERENCES "Judges",
+	CONSTRAINT "FK_CategoryID_CallForSpeakes" FOREIGN KEY("CategoryId") REFERENCES "Categories",
 	CONSTRAINT "FK_JudgeID_CallForSpeech_FinalDecision_DecysionBy" FOREIGN KEY("FinalDecision_DecisionBy") REFERENCES "Judges",
 	CONSTRAINT "PK_CallForSpeakes_PK" PRIMARY KEY("Id" AUTOINCREMENT)
 );
-INSERT INTO "Categories" VALUES (1,'c9f0802c-751d-11eb-9439-0242ac130002',1,'.NET','DotNet','Szukamy war-stories, czyli czegoś co osoba mówiąca przeżyła, brała czynny udział i wyszła na lub pod tarczą. Czyli życiowych problemów i rozwiązań. To taki nasz konik. W drugiej kolejności patrzymy na ciekawe przekrojowe tematy, które poruszają wzorce, style architektoniczne i inne ciekawe aspekty programowania w .net które mają głębszy sens a do tego nie przemijają z wiatrem. Następnie ciekaw narzędzia, które mogą nam pomóc i wesprzeć w codziennej pracy – na przykład testy konwencji za pomocą specjalnego narzędzia do dotnet które to umożliwia robić. Na końcu zaś biblioteki i frameworki.');
+CREATE TABLE IF NOT EXISTS "Judges" (
+	"ID"	INTEGER NOT NULL UNIQUE,
+	"UniqueId"	TEXT NOT NULL,
+	"Version"	INTEGER NOT NULL,
+	"Login"	TEXT NOT NULL,
+	"Password"	TEXT NOT NULL,
+	"BirthDate"	NUMERIC NOT NULL,
+	"Name_First"	TEXT NOT NULL,
+	"Name_Last"	TEXT NOT NULL,
+	"CategoryID"	INTEGER NOT NULL,
+	CONSTRAINT "FK_CategoryId_Judges" FOREIGN KEY("CategoryID") REFERENCES "Categories",
+	CONSTRAINT "PK_Judges_KEY" PRIMARY KEY("ID" AUTOINCREMENT)
+);
+INSERT INTO "Categories" VALUES (1,'c9f0802c-751d-11eb-9439-0242ac130002',0,'asa','asas','zzzzz');
 INSERT INTO "Categories" VALUES (2,'d427cdb6-751d-11eb-9439-0242ac130002',1,'Architektury Aplikacji','Architecture','Szukamy tematów, w których od razu wiadomo czego konkretnie uczestnik się dowie i co musi już wiedzieć.
 Jeżeli masz temat ogólny i przekrojowy, to napisz jakie decyzje będziemy mogli lepiej podejmować dzięki tej prezentacji.
 Jeżeli masz temat narzędziowy, to napisz jaki problem albo jaki cel
@@ -107,26 +103,36 @@ INSERT INTO "Categories" VALUES (11,'f9a1d712-751d-11eb-9439-0242ac130002',1,'Mo
 INSERT INTO "Categories" VALUES (12,'0ad0921c-751e-11eb-9439-0242ac130002',1,'Machine Learning','Machine Learning','Szukamy sesji opisujących projekty z zakresu AI/ML/DL w których braliście udział — zarówno tych zakończonych sukcesem, jak i tych mniej udanych. Interesują nas też sesje poświęcone używanym przez Was na co dzień narzędziom, platformom i biblioteką uczenia maszynowego, szczególnie jeśli możecie podzielić się radami dotyczącymi ich efektywnego użycia. Nie ograniczamy zakresu tematycznego i poziomu trudności zgłaszanych sesji.');
 INSERT INTO "Categories" VALUES (13,'0349f236-751e-11eb-9439-0242ac130002',1,'Python','Python',NULL);
 INSERT INTO "Categories" VALUES (14,'0349f600-751e-11eb-9439-0242ac130002',1,'aa','ddd','ccc');
-INSERT INTO "Judges" VALUES (1,'2e26df1e-751e-11eb-9439-0242ac130002',1,'Bartek','Bartek','30-12-1980','Bartosz','Gutkowski','Gutkowski@wp.pl','Gutkowski@geeklemonconference.pl','(+48)555 555 555','(+48)777 555 777',1);
-INSERT INTO "Judges" VALUES (2,'2e26e158-751e-11eb-9439-0242ac130002',1,'Jakub','Jakub','22-11-1982','Jakub','Stapp','Stapp@wp.pl','Stapp@geeklemonconference.pl','(+48)555 555 555','(+48)777 555 777',1);
-INSERT INTO "Judges" VALUES (3,'2e26e3d8-751e-11eb-9439-0242ac130002',1,'Anita','Anita','13-01-1987','Anita','Bartyzel','Bartyzel@geeklemonconference.pl','Bartyzel@wp.pl','(+48)555 555 555','(+48)777 555 777',2);
-INSERT INTO "Judges" VALUES (4,'2e26e554-751e-11eb-9439-0242ac130002',1,'Piotr','Piotr','23-05-1981','Jakub','Wicherski','Wicherski@geeklemonconference.pl','Wicherski@wp.pl','(+48)555 555 555','(+48)777 555 777',2);
-INSERT INTO "Judges" VALUES (5,'2e26eaae-751e-11eb-9439-0242ac130002',1,'Damian','Damian','23-09-1985','Damian','Sobótka','Sobotka@geeklemonconference.pl','Sobotka@wp.pl','(+48)555 555 555','(+48)777 555 777',3);
-INSERT INTO "Judges" VALUES (6,'3da8dfd2-751e-11eb-9439-0242ac130002',1,'Tomasz','Tomasz','23-09-1989','Tomasz','Pilimon','Pilimon@geeklemonconference.pl','Pilimon@wp.pl','(+48)555 555 555','(+48)777 555 777',3);
-INSERT INTO "Judges" VALUES (7,'3da8e5ea-751e-11eb-9439-0242ac130002',1,'Michal','Michal','23-09-1989','Michał','Libudzic','Libudzic@geeklemonconference.pl','Libudzic@wp.pl','(+48)555 555 555','(+48)777 555 777',4);
-INSERT INTO "Judges" VALUES (8,'43af19a0-751e-11eb-9439-0242ac130002',1,'Pawel','Pawel','23-09-1989','Paweł','Mazurek','Mazurek@geeklemonconference.pl','Mazurek@wp.pl','(+48)555 555 555','(+48)777 555 777',4);
-INSERT INTO "Judges" VALUES (9,'43af20bc-751e-11eb-9439-0242ac130002',1,'Grzegorz','Grzegorz','23-09-1989','Grzegorz','Przygudzki','Przygudzki@geeklemonconference.pl','Przygudzki@wp.pl','(+48)555 555 555','(+48)777 555 777',5);
-INSERT INTO "Judges" VALUES (10,'4899c488-751e-11eb-9439-0242ac130002',1,'Krzysztof','Krzysztof','23-09-1989','Krzysztof','Piwowarek','Piwowarek@geeklemonconference.pl','Piwowarek@wp.pl','(+48)555 555 555','(+48)777 555 777',5);
-INSERT INTO "Judges" VALUES (11,'4899c924-751e-11eb-9439-0242ac130002',1,'Maciek','Maciek','23-09-1990','Maciek','Zub','Zub@geeklemonconference.pl','Zub@wp.pl','(+48)555 555 555','(+48)777 555 777',6);
-INSERT INTO "Judges" VALUES (12,'4899ca0a-751e-11eb-9439-0242ac130002',1,'Hubert','Hubert','15-06-1980','Hubert','Korsan','Korsan@geeklemonconference.pl','Korsan@wp.pl','(+48)555 555 555','(+48)777 555 777',6);
-INSERT INTO "Judges" VALUES (13,'5086986a-751e-11eb-9439-0242ac130002',1,'GregoryA','GregoryB','20-02-2021','Gregory','Zakrowiski','Zakrowiski@wp.pl','Zakrowiski@geeklemonconference.pl','(51)222 555 555','(51)222 555 777',7);
-INSERT INTO "Judges" VALUES (14,'716a6f7d-ebe7-4d3e-8fd8-44c12aaca95c',1,'GregoryC','Gregoryf','20-02-1988','GregoryAAA','ZakrowiskiAA','ZakrowiskiA@wp.pl','ZakrowiskiA@geeklemonconference.pl','(421)111 555 555','(451)111 555 777',1);
+INSERT INTO "Categories" VALUES (26,'c479a836-b339-437c-a058-b01f1b403872',0,'sss','aa','ccc');
+INSERT INTO "Categories" VALUES (27,'f0009f84-d2f0-45f5-907f-1b83ef05d941',1,'string','string','string');
+INSERT INTO "Categories" VALUES (28,'aa5098ab-6bbc-4f0e-b220-2acbecded34b',1,'string','string','string');
+INSERT INTO "Categories" VALUES (29,'36083e0f-404e-4133-b922-8a95123ff527',1,'string','string','string');
 INSERT INTO "CallForSpeakes" VALUES (1,'1fb57aee-751e-11eb-9439-0242ac130002',1,'4687654',0,NULL,NULL,NULL,NULL,'Cezary','Walenciuk','Poland','00-222','White Underwodds','Balskowa','https://www.facebook.com/cezary.walenciuk','https://twitter.com/walenciukc','https://www.instagram.com/cezarywalenciuk/','https://www.linkedin.com/in/cezary-walenciuk-35615644/','https://www.tiktok.com/@shanselman?','https://www.youtube.com/channel/UCaryk7_lKRI1EldZ6saVjBQ','https://www.facebook.com/JakProgramowac?fref=nf','https://github.com/PanNiebieski','https://cezarywalenciuk.pl/','Człowiek, który czuje, że jego misją jest nauczanie innych i otwieranie ich dróg na lepsze jutro. Prowadzi bloga o przemawianiu i programowaniu. Ma także swój kanał YouTubie, na którym są webinary na wszelki tematy. Prowadzący fanpage "JakProgramować" na Facebooku. Aktywny na Twitterze pod nazwą "@waleniukC" oraz na Instagramie "cezary.walenciuk" gdzie wkleja pytania rekrutacyjne z różnych obszarów programowania.
 Przemawia od 5 lat w Toastmasters oraz na konferencjach programistycznych.
 Założyciel klubu mówców Ninja Speakers w Warszawie, który funkcjonował przez 2 lata.  Od 8 lat pracuje jako programista .NET i siedzi w tak zwanej Webówce. Zwycięzca konkursu na mowę inspiracyjną po angielsku w 2016 roku na terenie Polski Wschodniej. W 2018 roku wygrał konkurs na opowiadanie historii w Bydgoszczy.','(+48)777 555 777','ce@gmail.com','1981-01-02','JSON Web Token i Samuraje z ASP.NET CORE, Swagger UI i Blazor','Uwierzytelnianie i autoryzacja przy pomocy JSON Web Tokenów (JWT) jest bardzo prosta. Chcielibyśmy stworzyć REST API dla naszej strony Samurajów, którą napiszemy w Blazor. Zobaczmy, jak te tokeny podróżują z REST API do aplikacji SPA napisanej nie w Angularze, nie w React, a w C#. Oto moc WebAssemlby mój samuraju. Dodatkowo nie chcemy się bawić w testowanie API przez Postman. Skorzystajmy z Swagger UI, który stworzy dla naszego REST API odpowiednią dokumentację i taką stronę testową, która tak też obsłuży  Uwierzytelnianie i autoryzacja przez Json Web Tokeny. Wstawaj Samuraju mamy aplikację do zabezpieczenia.','.NET,C#,ASP.NET CORE, JSON WEB TOKENS, BLAZOR, Swagger UI',1,0,'02-02-2021',1,NULL,NULL,NULL);
 INSERT INTO "CallForSpeakes" VALUES (2,'1fb57fc6-751e-11eb-9439-0242ac130002',1,'9989754',3,2,'poniedziałek, 22 lutego 2021',2,'poniedziałek, 22 lutego 2021','Cezary','Walenciuk','Poland','00-222','White Underwodds','Balskowa','https://www.facebook.com/cezary.walenciuk','https://twitter.com/walenciukc','https://www.instagram.com/cezarywalenciuk/','https://www.linkedin.com/in/cezary-walenciuk-35615644/','https://www.tiktok.com/@shanselman?','https://www.youtube.com/channel/UCaryk7_lKRI1EldZ6saVjBQ','https://www.facebook.com/JakProgramowac?fref=nf','https://github.com/PanNiebieski','https://cezarywalenciuk.pl/','Człowiek, który czuje, że jego misją jest nauczanie innych i otwieranie ich dróg na lepsze jutro. Prowadzi bloga o przemawianiu i programowaniu. Ma także swój kanał YouTubie, na którym są webinary na wszelki tematy. Prowadzący fanpage "JakProgramować" na Facebooku. Aktywny na Twitterze pod nazwą "@waleniukC" oraz na Instagramie "cezary.walenciuk" gdzie wkleja pytania rekrutacyjne z różnych obszarów programowania.
 Przemawia od 5 lat w Toastmasters oraz na konferencjach programistycznych.
 Założyciel klubu mówców Ninja Speakers w Warszawie, który funkcjonował przez 2 lata.  Od 8 lat pracuje jako programista .NET i siedzi w tak zwanej Webówce. Zwycięzca konkursu na mowę inspiracyjną po angielsku w 2016 roku na terenie Polski Wschodniej. W 2018 roku wygrał konkurs na opowiadanie historii w Bydgoszczy.','(+48)555777111','ce@gmail.com','11-12-1988','JSON Web Token i Samuraje z ASP.NET CORE, Swagger UI i Blazor','Uwierzytelnianie i autoryzacja przy pomocy JSON Web Tokenów (JWT) jest bardzo prosta. Chcielibyśmy stworzyć REST API dla naszej strony Samurajów, którą napiszemy w Blazor. Zobaczmy, jak te tokeny podróżują z REST API do aplikacji SPA napisanej nie w Angularze, nie w React, a w C#. Oto moc WebAssemlby mój samuraju. Dodatkowo nie chcemy się bawić w testowanie API przez Postman. Skorzystajmy z Swagger UI, który stworzy dla naszego REST API odpowiednią dokumentację i taką stronę testową, która tak też obsłuży  Uwierzytelnianie i autoryzacja przez Json Web Tokeny. Wstawaj Samuraju mamy aplikację do zabezpieczenia.','.NET,C#,ASP.NET CORE, JSON WEB TOKENS, BLAZOR, Swagger UI',1,0,'02-02-2021',1,3,'','');
+INSERT INTO "CallForSpeakes" VALUES (3,'1fb57aee-751e-11eb-9439-0242ac130099',0,'12124343',5,NULL,NULL,NULL,NULL,'asa','asas','sasa','21-700','sdsds','sdsds',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'sdsdsdsds','(+48)555777111','ce@gmail.com','11-12-1988','asas','asa','asas',1,1,'11-11-2020',1,1,'Speaker must have at least one social media
+Speaker must have at blog or github','');
+INSERT INTO "CallForSpeakes" VALUES (4,'b1367fc9-0a27-4f2e-b0f9-823cd2d79a6e',1,'string',0,NULL,NULL,NULL,NULL,'string','string','string','21-500','string','string','string','string','string','string','string','string','string','string','string','string','string','string','27-02-2021','string','string','string',0,1,'2021-02-28 00:25:50.764',1,NULL,NULL,NULL);
+INSERT INTO "Judges" VALUES (1,'2e26df1e-751e-11eb-9439-0242ac130002',1,'Bartek','Bartek','30-12-1980','Bartosz','Gutkowski',1);
+INSERT INTO "Judges" VALUES (2,'2e26e158-751e-11eb-9439-0242ac130002',1,'Jakub','Jakub','22-11-1982','Jakub','Stapp',1);
+INSERT INTO "Judges" VALUES (3,'2e26e3d8-751e-11eb-9439-0242ac130002',1,'Anita','Anita','13-01-1987','Anita','Bartyzel',2);
+INSERT INTO "Judges" VALUES (4,'2e26e554-751e-11eb-9439-0242ac130002',1,'Piotr','Piotr','23-05-1981','Jakub','Wicherski',2);
+INSERT INTO "Judges" VALUES (5,'2e26eaae-751e-11eb-9439-0242ac130002',1,'Damian','Damian','23-09-1985','Damian','Sobótka',3);
+INSERT INTO "Judges" VALUES (6,'3da8dfd2-751e-11eb-9439-0242ac130002',1,'Tomasz','Tomasz','23-09-1989','Tomasz','Pilimon',3);
+INSERT INTO "Judges" VALUES (7,'3da8e5ea-751e-11eb-9439-0242ac130002',1,'Michal','Michal','23-09-1989','Michał','Libudzic',4);
+INSERT INTO "Judges" VALUES (8,'43af19a0-751e-11eb-9439-0242ac130002',1,'Pawel','Pawel','23-09-1989','Paweł','Mazurek',4);
+INSERT INTO "Judges" VALUES (9,'43af20bc-751e-11eb-9439-0242ac130002',1,'Grzegorz','Grzegorz','23-09-1989','Grzegorz','Przygudzki',5);
+INSERT INTO "Judges" VALUES (10,'4899c488-751e-11eb-9439-0242ac130002',1,'Krzysztof','Krzysztof','23-09-1989','Krzysztof','Piwowarek',5);
+INSERT INTO "Judges" VALUES (11,'4899c924-751e-11eb-9439-0242ac130002',1,'Maciek','Maciek','23-09-1990','Maciek','Zub',6);
+INSERT INTO "Judges" VALUES (12,'4899ca0a-751e-11eb-9439-0242ac130002',1,'Hubert','Hubert','15-06-1980','Hubert','Korsan',6);
+INSERT INTO "Judges" VALUES (13,'5086986a-751e-11eb-9439-0242ac130002',1,'GregoryA','GregoryB','20-02-2021','Gregory','Zakrowiski',7);
+INSERT INTO "Judges" VALUES (14,'716a6f7d-ebe7-4d3e-8fd8-44c12aaca95c',1,'GregoryC','Gregoryf','20-02-1988','GregoryAAA','ZakrowiskiAA',1);
+INSERT INTO "Judges" VALUES (15,'abe1d75f-1817-4884-aad8-57fc2c281685',1,'GregoryC','Gregoryf','20-02-1988','GregoryAAA','ZakrowiskiAA',1);
+INSERT INTO "Judges" VALUES (16,'8610e05d-4e14-4688-95b9-5aa41e97e31d',1,'ttt','tttt','01-01-0001','string','string',1);
+INSERT INTO "Judges" VALUES (17,'475eb4f9-9dbb-40bf-ae65-062db5722bd2',1,'string','string','01-01-0001','string','string',1);
 CREATE UNIQUE INDEX IF NOT EXISTS "CategoryID_Index" ON "Categories" (
 	"ID"	DESC
 );

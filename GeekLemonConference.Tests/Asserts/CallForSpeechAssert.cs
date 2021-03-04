@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace GeekLemonConference.Tests.Asserts
 {
-    public class CallForSpeechAssert : ReferenceTypeAssertions<CallForSpeech, CallForSpeechAssert>
+    public class CallForSpeechAssert :
+        ReferenceTypeAssertions<CallForSpeech, CallForSpeechAssert>
     {
         public CallForSpeechAssert(CallForSpeech cfs)
             : base(cfs)
@@ -28,11 +29,6 @@ namespace GeekLemonConference.Tests.Asserts
         {
             return BeInStatus(CallForSpeechStatus.AcceptedByJudge);
         }
-
-        //public AndConstraint<CallForSpeechAssert> BeAcceptedByJudgeButHasProblems()
-        //{
-        //    return BeInStatus(CallForSpeechStatus.AcceptedByJudgeButHasProblems);
-        //}
 
         public AndConstraint<CallForSpeechAssert> BePreliminaryAcceptedByJudge()
         {

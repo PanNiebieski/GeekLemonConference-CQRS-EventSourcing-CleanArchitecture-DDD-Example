@@ -29,22 +29,11 @@ namespace GeekLemon.Persistence.Dapper.SQLite.Map
 
             Judge j = new Judge(source.Id, login, password, name, c);
 
-            //j.Emails = new List<Email>()
-            //{
-            //    new Email() { Type = EmailType.FORCONFERENCE, Value = source.Email_ForeConference},
-            //    new Email() { Type = EmailType.FORSPEAKERS, Value = source.Email_ForSpeakers}
-            //};
 
 
             j.Birthdate = DateTime.Parse(source.BirthDate);
 
-            //j.Phones = new List<Phone>()
-            //{
-            //    new Phone(source.Phone_ForConference,
-            //        PhoneType.FORCONFERENCE),
-            //    new Phone(source.Phone_ForSpekers,
-            //        PhoneType.FORSPEAKERS)
-            //};
+
 
             if (source.UniqueId != "")
                 j.UniqueId = new JudgeUniqueId(Guid.Parse(source.UniqueId));

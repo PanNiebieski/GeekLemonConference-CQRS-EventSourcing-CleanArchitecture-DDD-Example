@@ -12,7 +12,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.Command.EvaluateC
     public class EvaluateCallForSpeechCommand
         : IRequest<EvaluateCallForSpeechCommandResponse>
     {
-        //public CallForSpeechUniqueId CallForSpeechUniqueId { get; set; }
+
 
         public Guid CallForSpeechUniqueId { get; set; }
     }

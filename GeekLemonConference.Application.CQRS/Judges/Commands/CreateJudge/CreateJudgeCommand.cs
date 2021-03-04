@@ -37,8 +37,6 @@ namespace GeekLemonConference.Application.CQRS.Judges.Commands.CreateJudge
             }
         }
 
-        //public List<EmailDto> Emails { get; set; }
         public DateTime Birthdate { get; set; }
-        //public List<PhoneDto> Phones { get; set; }
     }
 }

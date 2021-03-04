@@ -32,11 +32,6 @@ namespace GeekLemonConference.DomainEvents.Categories
             WhatWeAreLookingFor = whatWeAreLookingFor;
         }
 
-        //public CategoryCreateEvent()
-        //{
-        //    Key = this.UniqueId.GetAggregateKey();
-        //}
-
     }
 
 }

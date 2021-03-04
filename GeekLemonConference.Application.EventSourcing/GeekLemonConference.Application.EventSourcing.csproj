@@ -5,6 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Map\**" />
+    <Compile Remove="Messages\**" />
+    <EmbeddedResource Remove="Map\**" />
+    <EmbeddedResource Remove="Messages\**" />
+    <None Remove="Map\**" />
+    <None Remove="Messages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Contracts\IBusEventHandler.cs" />
+    <Compile Remove="Contracts\IEventHandler.cs" />
+    <Compile Remove="Contracts\IPrivateReflectionDynamicObject.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />

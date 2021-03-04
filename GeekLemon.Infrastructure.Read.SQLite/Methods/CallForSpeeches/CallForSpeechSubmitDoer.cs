@@ -55,17 +55,12 @@ namespace GeekLemonConference.Persistence.Dapper.SQLite.Methods.CallForSpeeches
             }
             catch (Exception ex)
             {
+                if (ExecutionFlow.Options.ThrowExceptions)
+                    throw;
+
                 return ExecutionStatus<CallForSpeechIds>.DbError(ex);
             }
 
-            //var result = await connection.QueryAsync<int>(q,
-            //     new
-            //     {
-            //         @Number = entity.Number.Number,
-            //         @Name = entity.Name,
-            //         @DisplayName = entity.DisplayName,
-            //         @WhatWeAreLookingFor = entity.WhatWeAreLookingFor
-            //     });
         }
     }
 }

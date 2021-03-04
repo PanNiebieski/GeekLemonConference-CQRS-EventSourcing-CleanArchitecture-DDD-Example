@@ -31,12 +31,5 @@ namespace GeekLemonConference.DomainEvents.Categories
             DisplayName = displayName;
             WhatWeAreLookingFor = whatWeAreLookingFor;
         }
-
-        //public CategoryUpdateEvent()
-        //{
-        //    Key = this.UniqueId.GetAggregateKey();
-        //}
-
-
     }
 }

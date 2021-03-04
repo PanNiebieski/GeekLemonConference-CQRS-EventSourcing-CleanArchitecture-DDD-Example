@@ -18,8 +18,8 @@ namespace GeekLemonConference.Application.CQRS.Dto
 
         public CategoryDto Category { get; set; }
 
-        //public List<EmailDto> Emails { get; set; }
+
         public DateTime Birthdate { get; }
-        //public List<PhoneDto> Phones { get; set; }
+
     }
 }

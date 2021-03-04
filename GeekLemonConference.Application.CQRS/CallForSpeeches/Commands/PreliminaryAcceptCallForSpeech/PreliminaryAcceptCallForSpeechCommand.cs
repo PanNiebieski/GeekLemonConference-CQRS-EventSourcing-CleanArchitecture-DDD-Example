@@ -12,8 +12,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.Command.Prelimina
         :
         IRequest<PreliminaryAcceptCallForSpeechCommandResponse>
     {
-        //public CallForSpeechUniqueId CallForSpeechIdUnique { get; set; }
-        //public JudgeId JudgeId { get; set; }
+
 
         public Guid CallForSpeechUniqueId { get; set; }
         public int JudgeId { get; set; }

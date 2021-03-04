@@ -7,7 +7,6 @@ namespace GeekLemonConference.DomainEvents.Ddd
 {
     public interface IEvent : IMessage
     {
-
         public int Version { get; set; }
         DateTimeOffset TimeStamp { get; set; }
     }

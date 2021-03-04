@@ -16,7 +16,5 @@ namespace GeekLemonConference.Application.CQRS.Queries.Categories.GetAllCategori
         public string DisplayName { get; init; }
 
         public string WhatWeAreLookingFor { get; init; }
-
-
     }
 }

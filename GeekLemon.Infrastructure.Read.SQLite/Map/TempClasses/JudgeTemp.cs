@@ -17,10 +17,10 @@ namespace GeekLemon.Persistence.Dapper.SQLite.TempClasses
         public string BirthDate { get; set; }
         public string Name_First { get; set; }
         public string Name_Last { get; set; }
-        public string Email_ForeConference { get; set; }
-        public string Email_ForSpeakers { get; set; }
-        public string Phone_ForSpekers { get; set; }
-        public string Phone_ForConference { get; set; }
+        //public string Email_ForeConference { get; set; }
+        //public string Email_ForSpeakers { get; set; }
+        //public string Phone_ForSpekers { get; set; }
+        //public string Phone_ForConference { get; set; }
         public int CategoryId { get; set; }
 
         public string Category_DisplayName { get; set; }

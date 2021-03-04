@@ -18,7 +18,6 @@ namespace GeekLemonConference.Tests.DomainTests
     {
         private readonly ScoringRulesFactory scoringRulesFactory = new ScoringRulesFactory();
 
-
         [Fact]
         public void NewCallForSpeech_IsCreatedIn_NewStatus_AndNullScore()
         {
@@ -117,8 +116,6 @@ namespace GeekLemonConference.Tests.DomainTests
             var judge = GivenJudge().
                 WithCategory(cat => cat.WithId(catid2))
                 .Build();
-
-            //cfs.PreliminaryAccept(judge);
 
             Action act = () => cfs.Accept(judge);
 

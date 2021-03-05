@@ -212,7 +212,7 @@ namespace GeekLemonConference.Api.Controllers
             var result = await _mediator.Send(ccceptCallForSpeechCommand);
 
             if (result.WhatHTTPCodeToBeRetruned == WhatHTTPCodeShouldBeRetruned.Forbid)
-                return Forbid(result.Message);
+                return BadRequest(result.Message);
             if (result.WhatHTTPCodeToBeRetruned == WhatHTTPCodeShouldBeRetruned.NotFound)
                 return NotFound(result.Message);
             if (result.WhatHTTPCodeToBeRetruned == WhatHTTPCodeShouldBeRetruned.BadRequest)

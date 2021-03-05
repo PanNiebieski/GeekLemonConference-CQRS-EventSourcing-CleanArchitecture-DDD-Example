@@ -28,7 +28,7 @@ namespace GeekLemonConference.Domain.Entities
             Name = name;
             Category = category;
             UniqueId = JudgeUniqueId.NewUniqueId();
-            Version = 1;
+            Version = 0;
         }
 
         public Judge(int id, Login login, Password password, Name name, Category category)
@@ -39,14 +39,14 @@ namespace GeekLemonConference.Domain.Entities
             Name = name;
             Category = category;
             UniqueId = JudgeUniqueId.NewUniqueId();
-            Version = 1;
+            Version = 0;
         }
 
         //To satisfy EF Core
         public Judge()
         {
             UniqueId = JudgeUniqueId.NewUniqueId();
-            Version = 1;
+            Version = 0;
         }
 
         public bool CanAccept(CategoryId categoryId)

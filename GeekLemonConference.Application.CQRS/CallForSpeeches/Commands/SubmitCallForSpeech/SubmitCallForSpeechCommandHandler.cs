@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GeekLemonConference.Application.Contracts.Repository;
+using GeekLemonConference.Application.CQRS.Mapper.Dto;
 using GeekLemonConference.Domain.Entity;
 using MediatR;
 using System;
@@ -41,7 +42,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.Command.SubmitCal
             if (!id.Success)
                 return new SubmitCallForSpeechCommandResponse();
 
-            return new SubmitCallForSpeechCommandResponse(id.Value);
+            return new SubmitCallForSpeechCommandResponse(_mapper.Map<IdsDto>(id.Value));
 
 
         }

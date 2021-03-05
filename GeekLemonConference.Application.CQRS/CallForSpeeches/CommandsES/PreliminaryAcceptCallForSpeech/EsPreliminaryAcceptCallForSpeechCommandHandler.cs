@@ -71,7 +71,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.Prelim
 
             var csf = _mapper.Map<CallForSpeech>(aggregateCallForSpeaker);
 
-            var domainLogicResult = csf.TryReject(judge);
+            var domainLogicResult = csf.TryPreliminaryAccept(judge);
             if (!domainLogicResult.Success)
                 return new EsPreliminaryAcceptCallForSpeechCommandResponse(domainLogicResult);
 

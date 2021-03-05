@@ -28,8 +28,6 @@ namespace GeekLemonConference.Application.CQRS.Judges.CommandsEs.UpdateJudge
             }
         }
 
-        //public List<EmailDto> Emails { get; set; }
         public DateTime Birthdate { get; set; }
-        //public List<PhoneDto> Phones { get; set; }
     }
 }

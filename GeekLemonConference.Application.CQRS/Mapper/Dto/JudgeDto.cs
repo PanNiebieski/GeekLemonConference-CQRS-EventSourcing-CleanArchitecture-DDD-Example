@@ -18,6 +18,7 @@ namespace GeekLemonConference.Application.CQRS.Dto
 
         public CategoryDto Category { get; set; }
 
+        public int Version { get; set; }
 
         public DateTime Birthdate { get; }
 

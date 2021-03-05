@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using GeekLemonConference.Application.Common;
+using GeekLemonConference.Application.CQRS.Mapper.Dto;
 using GeekLemonConference.Domain;
 using GeekLemonConference.Domain.ValueObjects.Ids;
 using System;
@@ -12,7 +13,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.Command.SubmitCal
 {
     public class SubmitCallForSpeechCommandResponse : BaseResponse
     {
-        public CallForSpeechIds CallForSpeechCommandIds { get; set; }
+        public IdsDto CallForSpeechCommandIds { get; set; }
 
         public SubmitCallForSpeechCommandResponse() : base()
         { }
@@ -42,7 +43,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.Command.SubmitCal
             : base(message, success)
         { }
 
-        public SubmitCallForSpeechCommandResponse(CallForSpeechIds callForSpeechid)
+        public SubmitCallForSpeechCommandResponse(IdsDto callForSpeechid)
         {
             CallForSpeechCommandIds = callForSpeechid;
         }

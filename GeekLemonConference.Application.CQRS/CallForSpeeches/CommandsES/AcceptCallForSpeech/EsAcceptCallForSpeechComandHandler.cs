@@ -70,7 +70,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.Accept
 
             var csf = _mapper.Map<CallForSpeech>(aggregateCallForSpeaker);
 
-            var domainLogicResult = csf.TryReject(judge);
+            var domainLogicResult = csf.TryAccept(judge);
             if (!domainLogicResult.Success)
                 return new EsAcceptCallForSpeechComandResponse(domainLogicResult);
 

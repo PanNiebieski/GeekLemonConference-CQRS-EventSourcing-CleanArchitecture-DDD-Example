@@ -47,10 +47,10 @@ namespace GeekLemonConference.Application.CQRS.Judges.CommandsEs.UpdateJudge
                 return await Task.FromResult(new
                     EsUpdateJudgeCommandResponse(eventstoreResult.RemoveGeneric()));
 
-            if (eventstoreResult.Value.Version > judge.Version)
+            if ((eventstoreResult.Value.Version - 1) > judge.Version)
                 return new EsUpdateJudgeCommandResponse
                     (ExecutionStatus.EventStoreConcurrencyError
-                    (@$"You sended old version. Your version {judge.Version}. In Event database version :{eventstoreResult.Value.Version}"));
+                    (@$"You sended old version. Your version {judge.Version}. Should be :{eventstoreResult.Value.Version - 1}"));
 
             eventstoreResult.Value.Update(judge);
             _sessionForEventSourcing.Commit();

@@ -66,7 +66,6 @@ namespace GeekLemonConference.Domain.Entity
             PreliminaryDecision = preliminaryDecision;
             FinalDecision = finalDecision;
             Category = category;
-            Version = 1;
             UniqueId = CallForSpeechUniqueId.NewUniqueId();
         }
 
@@ -74,7 +73,6 @@ namespace GeekLemonConference.Domain.Entity
         protected CallForSpeech()
         {
             UniqueId = CallForSpeechUniqueId.NewUniqueId();
-            Version = 1;
         }
 
         public void Evaluate(ScoringRules rules)

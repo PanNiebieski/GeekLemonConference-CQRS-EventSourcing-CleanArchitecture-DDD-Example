@@ -48,10 +48,10 @@ namespace GeekLemonConference.Application.CQRS.Categories.CommandsEs.UpdateCateg
                 return new EsUpdateCategoryCommandResponse
                     (eventstoreResult.RemoveGeneric());
 
-            if ((eventstoreResult.Value.Version - 1) > (category.Version ))
+            if ((eventstoreResult.Value.Version - 1) > (category.Version))
                 return new EsUpdateCategoryCommandResponse
                     (ExecutionStatus.EventStoreConcurrencyError(@$"You sended old version.
-                    Yours {category.Version}. In Event database :{eventstoreResult.Value.Version}"));
+                    Yours {category.Version}. Should be:{eventstoreResult.Value.Version}"));
 
             eventstoreResult.Value.Update(category);
 

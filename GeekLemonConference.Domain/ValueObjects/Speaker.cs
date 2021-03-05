@@ -16,27 +16,27 @@ namespace GeekLemonConference.Domain.ValueObjects
         public Contact Contact { get; init; }
 
         public Speaker(Name name, DateTime birthdate,
-            Address address, SpeakerWebsites socialMedia, string Bio,
+            Address address, SpeakerWebsites speakerWebsites, string biography,
             Contact contact)
         {
             if (contact == null)
                 throw new ArgumentException("Contact cannot be null");
-            if (Bio == null)
-                throw new ArgumentException("BIO cannot be null");
+            if (biography == null)
+                throw new ArgumentException("biography cannot be null");
             if (name == null)
                 throw new ArgumentException("Name cannot be null");
             if (address == null)
                 throw new ArgumentException("Address cannot be null");
             if (birthdate == default)
                 throw new ArgumentException("Birthdate cannot be empty");
-            if (socialMedia == default)
+            if (speakerWebsites == default)
                 throw new ArgumentException("SpeakerWebsites cannot be empty");
 
             Name = name;
             Birthdate = birthdate;
             Address = address;
-            SpeakerWebsites = socialMedia;
-            Biography = Bio;
+            SpeakerWebsites = speakerWebsites;
+            Biography = biography;
             Contact = contact;
         }
 

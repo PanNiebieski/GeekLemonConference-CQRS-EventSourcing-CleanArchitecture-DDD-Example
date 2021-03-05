@@ -40,18 +40,14 @@ namespace GeekLemon.Infrastructure.Write.MongoDB
             }
         }
 
-        public ExecutionStatus LoadFromHistory(IEnumerable<DomainEvent> history)
+        public void LoadFromHistory(IEnumerable<DomainEvent> history)
         {
             foreach (var e in history)
             {
-                if (e.Version != Version + 1)
-                    //return ExecutionStatus.EventStoreEventsOutOfOrderError
-                    //    ($"Eventstore gave event for aggregate {e.Key} out of order");
-                    throw new EventsOutOfOrderException(e.Key);
+                //if (e.Version != Version + 1)
+                //throw new EventsOutOfOrderException(e.Key);
                 ApplyChange(e, false);
             }
-
-            return ExecutionStatus.EventStoreOk();
         }
 
         protected void ApplyChange(DomainEvent @event)
@@ -72,7 +68,7 @@ namespace GeekLemon.Infrastructure.Write.MongoDB
                 else
                 {
                     Key = @event.Key;
-                    Version++;
+                    //Version++;
                 }
             }
         }

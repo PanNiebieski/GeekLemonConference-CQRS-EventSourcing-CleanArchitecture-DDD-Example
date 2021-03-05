@@ -71,7 +71,7 @@ namespace GeekLemonConference.Infrastructure.EventStore.MongoDb
             catch (Exception exp)
             {
                 session.AbortTransaction();
-                throw exp;
+                throw;
             }
         }
     }

@@ -10,13 +10,11 @@ namespace GeekLemonConference.Domain
     public class ExecutionStatus
     {
         public bool Success { get; set; }
-        public string MessageForClient { get; set; }
+        public string Message { get; set; }
         public string MessageForDeveloper { get; set; }
         public Exception Exception { get; init; }
         public WhereExecuted Where { get; init; }
         public Reason Reason { get; set; }
-
-
 
         internal ExecutionStatus()
         {
@@ -47,7 +45,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.DomainLogic,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.Error
             };
         }
@@ -58,7 +56,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.Error
             };
         }
@@ -69,7 +67,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore
             };
         }
@@ -80,7 +78,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.EventsOutOfOrderInEventStore
             };
         }
@@ -91,7 +89,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.AggregateNotFoundInEventStore
             };
         }
@@ -104,7 +102,7 @@ namespace GeekLemonConference.Domain
                 Success = false,
                 Reason = Reason.NotControledException,
                 Exception = ex,
-                MessageForClient = ex.Message
+                MessageForDeveloper = ex.Message
             };
         }
 
@@ -116,7 +114,7 @@ namespace GeekLemonConference.Domain
                 Success = false,
                 Reason = Reason.NotControledException,
                 Exception = ex,
-                MessageForClient = ex.Message
+                MessageForDeveloper = ex.Message
             };
         }
 
@@ -136,7 +134,7 @@ namespace GeekLemonConference.Domain
                 Where = WhereExecuted.DataBase,
                 Reason = Reason.Error,
                 Success = false,
-                MessageForClient = message
+                Message = message
             };
         }
 
@@ -147,7 +145,7 @@ namespace GeekLemonConference.Domain
                 Where = WhereExecuted.DataBase,
                 Success = false,
                 Exception = ex,
-                MessageForClient = ex.Message,
+                Message = ex.Message,
                 Reason = Reason.Error
             };
         }
@@ -156,7 +154,7 @@ namespace GeekLemonConference.Domain
     public class ExecutionStatus<T>
     {
         public bool Success { get; init; }
-        public string MessageForClient { get; init; }
+        public string Message { get; init; }
         public string MessageForDeveloper { get; set; }
         public Exception Exception { get; init; }
         public WhereExecuted Where { get; init; }
@@ -175,7 +173,7 @@ namespace GeekLemonConference.Domain
             {
                 Success = this.Success,
                 Exception = this.Exception,
-                MessageForClient = this.MessageForClient,
+                Message = this.Message,
                 MessageForDeveloper = this.MessageForDeveloper,
                 Reason = this.Reason,
                 Where = this.Where
@@ -217,7 +215,7 @@ namespace GeekLemonConference.Domain
             return new ExecutionStatus<T>()
             {
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.Error,
                 Where = WhereExecuted.DomainLogic
             };
@@ -228,7 +226,7 @@ namespace GeekLemonConference.Domain
             return new ExecutionStatus<T>()
             {
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.Error,
                 Where = WhereExecuted.EventStore
             };
@@ -242,7 +240,7 @@ namespace GeekLemonConference.Domain
                 Success = false,
                 Reason = Reason.NotControledException,
                 Exception = ex,
-                MessageForClient = ex.Message
+                MessageForDeveloper = ex.Message
             };
         }
 
@@ -254,7 +252,7 @@ namespace GeekLemonConference.Domain
                 Success = false,
                 Reason = Reason.NotControledException,
                 Exception = ex,
-                MessageForClient = ex.Message
+                MessageForDeveloper = ex.Message
             };
         }
 
@@ -265,7 +263,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore
             };
         }
@@ -276,7 +274,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.AggregateOrEventMissingIdInEventStore
             };
         }
@@ -287,7 +285,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.EventStore,
                 Success = false,
-                MessageForClient = message,
+                Message = message,
                 Reason = Reason.AggregateNotFoundInEventStore
             };
         }
@@ -302,7 +300,7 @@ namespace GeekLemonConference.Domain
                 {
                     Where = WhereExecuted.DomainLogic,
                     Success = false,
-                    MessageForClient = "NotFound",
+                    Message = "NotFound",
                     Reason = Reason.ReturnedNull
                 };
             }
@@ -320,7 +318,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = WhereExecuted.DataBase,
                 Success = false,
-                MessageForClient = message
+                Message = message
             };
         }
 
@@ -344,7 +342,7 @@ namespace GeekLemonConference.Domain
                 {
                     Where = WhereExecuted.DataBase,
                     Success = false,
-                    MessageForClient = "NotFound",
+                    Message = "NotFound",
                     Reason = Reason.ReturnedNull
                 };
             }
@@ -363,8 +361,7 @@ namespace GeekLemonConference.Domain
             {
                 Where = addstatus.Where,
                 Exception = addstatus.Exception,
-                MessageForClient = addstatus.MessageForClient,
-                MessageForDeveloper = addstatus.MessageForDeveloper,
+                Message = addstatus.Message,
                 Success = true,
             };
         }

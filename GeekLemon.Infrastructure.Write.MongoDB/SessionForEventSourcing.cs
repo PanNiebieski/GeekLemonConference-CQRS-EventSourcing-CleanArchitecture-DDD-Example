@@ -40,7 +40,7 @@ namespace GeekLemonConference.Infrastructure.EventStoreAndBus
             }
             catch (Exception ex)
             {
-                //if (ExecutionFlow.Options.ThrowExceptions)
+                if (ExecutionFlow.Options.ThrowExceptions)
                 throw;
 
                 return ExecutionStatus.EventStoreError(ex);
@@ -72,7 +72,7 @@ namespace GeekLemonConference.Infrastructure.EventStoreAndBus
             }
             catch (Exception ex)
             {
-                //if (ExecutionFlow.Options.ThrowExceptions)
+                if (ExecutionFlow.Options.ThrowExceptions)
                 throw;
 
                 return ExecutionStatus<T>.EventStoreError(ex);

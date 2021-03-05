@@ -20,7 +20,7 @@ namespace GeekLemonConference.Application.CQRS.Categories.CommandsEs.CreateCateg
 
         public string WhatWeAreLookingFor { get; set; }
 
-        internal int Version { get; private set; }
+        public int Version { get; private set; }
 
         internal CategoryUniqueId UniqueId { get; private set; }
 

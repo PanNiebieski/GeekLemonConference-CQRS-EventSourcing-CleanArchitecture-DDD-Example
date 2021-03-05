@@ -21,7 +21,7 @@ namespace GeekLemonConference.DomainEvents.Categories
         public string WhatWeAreLookingFor { get; init; }
 
         public CategoryUpdateEvent(CategoryUniqueId uniqueId,
-            string Name, string displayName, string whatWeAreLookingFor,
+            string name, string displayName, string whatWeAreLookingFor,
             int version)
             : base(version)
         {
@@ -29,6 +29,7 @@ namespace GeekLemonConference.DomainEvents.Categories
             UniqueId = uniqueId;
             Key = this.UniqueId.GetAggregateKey();
             DisplayName = displayName;
+            Name = name;
             WhatWeAreLookingFor = whatWeAreLookingFor;
         }
     }

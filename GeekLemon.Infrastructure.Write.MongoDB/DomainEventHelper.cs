@@ -31,12 +31,6 @@ namespace GeekLemonConference.Infrastructure.EventStoreAndBus
             };
 
             return g;
-
-            var queue = @event is JudgeCreatedEvent ?
-                Constants.QUEUE_JUDGE_CREATED : @event is JudgeUpdatedEvent ?
-                Constants.QUEUE_JUDGE_UPDATED : Constants.QUEUE_JUDGE_DELETED;
-
-            return queue;
         }
     }
 }

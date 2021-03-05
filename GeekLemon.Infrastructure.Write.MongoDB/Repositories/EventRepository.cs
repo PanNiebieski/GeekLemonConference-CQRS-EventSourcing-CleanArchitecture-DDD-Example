@@ -29,6 +29,7 @@ namespace GeekLemon.Infrastructure.Write.MongoDB
             if (expectedVersion != null && _eventStore.Get(
                     aggregate.Key, expectedVersion.Value).Any())
                 throw new ConcurrencyException(aggregate.Key);
+
             var i = 0;
             foreach (var @event in aggregate.GetUncommittedChanges())
             {
@@ -55,7 +56,6 @@ namespace GeekLemon.Infrastructure.Write.MongoDB
         {
             var aggregate = GeekLemonConference.Application.EventSourcing.AggregateFactory.CreateAggregate<T>();
 
-            //#ToFix
             var events = _eventStore.Get(id, -1);
             if (!events.Any())
                 throw new AggregateNotFoundException(id);

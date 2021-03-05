@@ -17,7 +17,7 @@ namespace GeekLemonConference.Infrastructure.EventStoreAndBus.Bus
     {
         private readonly ConnectionFactory connectionFactory;
 
-        public GeekLemonEventPublisher(IHostingEnvironment env/*, AMQPEventSubscriber aMQPEventSubscriber*/)
+        public GeekLemonEventPublisher(IHostingEnvironment env)
         {
             connectionFactory = new ConnectionFactory();
 

@@ -69,7 +69,6 @@ namespace GeekLemonConference.Api
 
             });
 
-
             services.AddGeekLemonConferenceCQRS(Configuration);
             services.AddGeekLemonPersistenceDapperSQLiteServices(Configuration);
             //services.AddDefaultEventStore();

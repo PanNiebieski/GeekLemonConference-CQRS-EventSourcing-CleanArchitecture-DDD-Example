@@ -72,9 +72,7 @@ namespace GeekLemonConference.Application.Common
                 if (status.Reason == Reason.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore)
                     Status = ResponseStatus.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore;
 
-                //Message = status.MessageForClient;
-                //if (ResponseMessagesOption.ShowDeveloperMessages)
-                //    Message += status.MessageForDeveloper;
+                Message = status.Message;
             }
             else
             {
@@ -107,9 +105,7 @@ namespace GeekLemonConference.Application.Common
                     Status = ResponseStatus.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore;
 
                 Message = message;
-                Message += status.MessageForClient;
-                //if (ResponseMessagesOption.ShowDeveloperMessages)
-                //    Message += status.MessageForDeveloper;
+                Message += status.Message;
             }
             else
             {

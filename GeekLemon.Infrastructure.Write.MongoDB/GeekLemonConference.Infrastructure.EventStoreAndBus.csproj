@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RabbitMqConfiguration.cs" />
     <Compile Remove="Repositories\CacheRepository - Copy.cs" />
     <Compile Remove="SessionForEventSourcing - Copy.cs" />
   </ItemGroup>

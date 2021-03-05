@@ -26,9 +26,9 @@ namespace GeekLemon.Persistence.Dapper.SQLite.Map
             sc.PreliminaryDecision_DecisionBy = source.PreliminaryDecision?.DecisionBy?.Value;
             sc.Registration_RegistrationDate = source.Registration.RegistrationDate.ToString("yyyy-MM-dd HH:mm:ss.fff",
                                         CultureInfo.InvariantCulture);
-            sc.Score_RejectExplanation = source.Score?.RejectExplanation;
-            sc.Score_WarringExplanation = source.Score?.WarringExplanation;
-            sc.Score_Score = (int)(source.Score?.Score ?? 0);
+            sc.Score_RejectExplanation = source.ScoreResult?.RejectExplanation;
+            sc.Score_WarringExplanation = source.ScoreResult?.WarringExplanation;
+            sc.Score_Score = (int)(source.ScoreResult?.Score ?? 0);
 
             if (source.Id != null)
                 sc.Id = source.Id.Value;

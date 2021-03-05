@@ -346,7 +346,7 @@ namespace GeekLemonConference.IntegrationTests.Persistence
             JudgeId judgeId = new JudgeId(1);
 
             var status2 = await callForSpeechSaveEvaluatationDoer.Run
-                (cfs.UniqueId, cfs.Score, cfs.Status);
+                (cfs.UniqueId, cfs.ScoreResult, cfs.Status);
 
             status2.Success.Should().BeTrue();
 
@@ -382,7 +382,7 @@ namespace GeekLemonConference.IntegrationTests.Persistence
             JudgeId judgeId = new JudgeId(1);
 
             var status2 = await callForSpeechSaveEvaluatationDoer.Run
-                (cfs.Id, cfs.Score, cfs.Status);
+                (cfs.Id, cfs.ScoreResult, cfs.Status);
 
             status2.Success.Should().BeTrue();
 

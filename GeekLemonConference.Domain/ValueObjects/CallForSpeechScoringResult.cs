@@ -1,4 +1,5 @@
 ﻿using GeekLemonConference.Domain.Ddd;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,12 @@ namespace GeekLemonConference.Domain.ValueObjects
 {
     public class CallForSpeechScoringResult : ValueObject<CallForSpeechScoringResult>
     {
-        public CallForSpeechMachineScore Score { get; }
-        public string RejectExplanation { get; }
-        public string WarringExplanation { get; }
+        [JsonProperty("score")]
+        public CallForSpeechMachineScore Score { get; set; }
+
+
+        public string RejectExplanation { get; set; }
+        public string WarringExplanation { get; set; }
 
         //[JsonConstructor]
         public CallForSpeechScoringResult(CallForSpeechMachineScore score,
@@ -19,16 +23,17 @@ namespace GeekLemonConference.Domain.ValueObjects
             RejectExplanation = rejectexlanation;
         }
 
+        [JsonConstructor]
         public CallForSpeechScoringResult(CallForSpeechMachineScore score,
-    string rejectexlanation, string warringExplanation)
+    string rejectExplanation, string warringExplanation)
         {
             Score = score;
-            RejectExplanation = rejectexlanation;
+            RejectExplanation = rejectExplanation;
             WarringExplanation = warringExplanation;
         }
 
         //To satisfy EF Core
-        protected CallForSpeechScoringResult()
+        public CallForSpeechScoringResult()
         {
         }
 

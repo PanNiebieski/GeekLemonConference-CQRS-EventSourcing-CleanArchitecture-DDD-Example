@@ -23,7 +23,7 @@ namespace GeekLemonConference.Application.Common
             get
             {
                 if (this.Status == ResponseStatus.BussinesLogicError)
-                    return WhatHTTPCodeShouldBeRetruned.Forbid;
+                    return WhatHTTPCodeShouldBeRetruned.BadRequest;
                 if (this.Status == ResponseStatus.NotFoundInDataBase)
                     return WhatHTTPCodeShouldBeRetruned.NotFound;
                 if (this.Status == ResponseStatus.ValidationError ||
@@ -31,7 +31,7 @@ namespace GeekLemonConference.Application.Common
                     this.Status == ResponseStatus.ConcurrencyOlderVersionSendedWhenNewerIsInEventStore)
                     return WhatHTTPCodeShouldBeRetruned.BadRequest;
                 if (!this.Success)
-                    return WhatHTTPCodeShouldBeRetruned.BadRequest;
+                    return WhatHTTPCodeShouldBeRetruned.MethodFailure;
                 else
                     return WhatHTTPCodeShouldBeRetruned.Ok;
             }

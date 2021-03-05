@@ -24,7 +24,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         public Category Category { get; set; }
         public CallForSpeechStatus Status { get; set; }
 
-        public CallForSpeechScoringResult Score { get; set; }
+        public CallForSpeechScoringResult ScoreResult { get; set; }
 
         public CallForSpeechUniqueId UniqueId { get; set; }
 
@@ -58,6 +58,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
             FinalDecision = e.FinalDecision;
             UniqueId = e.UniqueId;
             Version = e.Version++;
+            ScoreResult = e.ScoreResult;
             this.Key = e.UniqueId.GetAggregateKey();
         }
 
@@ -73,6 +74,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
             FinalDecision = e.FinalDecision;
             UniqueId = e.UniqueId;
             Version = e.Version++;
+            ScoreResult = e.ScoreResult;
             this.Key = e.UniqueId.GetAggregateKey();
         }
 
@@ -89,6 +91,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
             FinalDecision = e.FinalDecision;
             UniqueId = e.UniqueId;
             Version = e.Version++;
+            ScoreResult = e.ScoreResult;
             this.Key = e.UniqueId.GetAggregateKey();
         }
 
@@ -104,6 +107,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
             FinalDecision = e.FinalDecision;
             UniqueId = e.UniqueId;
             Version = e.Version++;
+            ScoreResult = e.ScoreResult;
             this.Key = e.UniqueId.GetAggregateKey();
         }
 
@@ -113,7 +117,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         {
             var c = new CallForSpeechSubmitEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
-                cc.Number, cc.Category, cc.Status, cc.Score,
+                cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,
                 cc.UniqueId, cc.Version);
             this.Key = c.UniqueId.GetAggregateKey();
@@ -124,7 +128,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         {
             var c = new CallForSpeechRejectedEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
-                cc.Number, cc.Category, cc.Status, cc.Score,
+                cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,
                 cc.UniqueId, cc.Version);
             this.Key = c.UniqueId.GetAggregateKey();
@@ -135,7 +139,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         {
             var c = new CallForSpeechPreliminaryAcceptEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
-                cc.Number, cc.Category, cc.Status, cc.Score,
+                cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,
                 cc.UniqueId, cc.Version);
             this.Key = c.UniqueId.GetAggregateKey();
@@ -146,7 +150,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         {
             var c = new CallForSpeechEvaulatedEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
-                cc.Number, cc.Category, cc.Status, cc.Score,
+                cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,
                 cc.UniqueId, cc.Version);
             this.Key = c.UniqueId.GetAggregateKey();
@@ -157,7 +161,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         {
             var c = new CallForSpeechAcceptedEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
-                cc.Number, cc.Category, cc.Status, cc.Score,
+                cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,
                 cc.UniqueId, cc.Version);
             this.Key = c.UniqueId.GetAggregateKey();

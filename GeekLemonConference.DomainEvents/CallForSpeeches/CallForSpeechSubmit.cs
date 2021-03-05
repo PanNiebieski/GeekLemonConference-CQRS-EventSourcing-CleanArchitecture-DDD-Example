@@ -3,6 +3,7 @@ using GeekLemonConference.Domain.Entities;
 using GeekLemonConference.Domain.ValueObjects;
 using GeekLemonConference.Domain.ValueObjects.Ids;
 using GeekLemonConference.DomainEvents.Ddd;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,17 @@ namespace GeekLemonConference.DomainEvents.CallForSpeeches
         public Category Category { get; init; }
         public CallForSpeechStatus Status { get; init; }
 
-        public CallForSpeechScoringResult Score { get; init; }
+        public CallForSpeechScoringResult ScoreResult { get; init; }
 
         public Decision PreliminaryDecision { get; init; }
         public Decision FinalDecision { get; init; }
 
         public CallForSpeechUniqueId UniqueId { get; init; }
 
+        [JsonConstructor]
         public CallForSpeechSubmitEvent(Speaker speaker, Speech speech,
             Registration registration, CallForSpeechNumber number, Category category,
-            CallForSpeechStatus status, CallForSpeechScoringResult score,
+            CallForSpeechStatus status, CallForSpeechScoringResult scoreResult,
             Decision preliminaryDecision, Decision finalDecision, CallForSpeechUniqueId uniqueId,
             int version)
             : base(version)
@@ -41,7 +43,7 @@ namespace GeekLemonConference.DomainEvents.CallForSpeeches
             Number = number;
             Category = category;
             Status = status;
-            Score = score;
+            ScoreResult = scoreResult;
             PreliminaryDecision = preliminaryDecision;
             FinalDecision = finalDecision;
             UniqueId = uniqueId;

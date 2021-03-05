@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.EvaluateCallForSpeech
 {
-    class EsEvaluateCallForSpeechCommandHandler
+    public class EsEvaluateCallForSpeechCommandHandler
         : IRequestHandler<EsEvaluateCallForSpeechCommand, EsEvaluateCallForSpeechCommandResponse>
     {
         private readonly ISessionForEventSourcing _sessionForEventSourcing;
@@ -64,7 +64,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.Evalua
             aggregateCallForSpeaker.Evaulated(csf);
             _sessionForEventSourcing.Commit();
 
-            var scoredto = _mapper.Map<ScoreDto>(csf.Score);
+            var scoredto = _mapper.Map<ScoreDto>(csf.ScoreResult);
             return new EsEvaluateCallForSpeechCommandResponse(scoredto);
         }
 

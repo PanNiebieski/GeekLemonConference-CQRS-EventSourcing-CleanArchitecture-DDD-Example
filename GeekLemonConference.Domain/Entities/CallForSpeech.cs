@@ -2,6 +2,7 @@
 using GeekLemonConference.Domain.Entities;
 using GeekLemonConference.Domain.ValueObjects;
 using GeekLemonConference.Domain.ValueObjects.Ids;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,8 @@ namespace GeekLemonConference.Domain.Entity
         public Category Category { get; private set; }
         public CallForSpeechStatus Status { get; private set; }
 
-        public CallForSpeechScoringResult Score { get; private set; }
+        [JsonProperty("scoreResult")]
+        public CallForSpeechScoringResult ScoreResult { get; set; }
 
         public Decision PreliminaryDecision { get; private set; }
         public Decision FinalDecision { get; private set; }
@@ -33,13 +35,14 @@ namespace GeekLemonConference.Domain.Entity
 
         }
 
+
         public CallForSpeech(
             CallForSpeechNumber number,
             CallForSpeechStatus status,
             Speaker speaker,
             Speech speech,
             Category category,
-            CallForSpeechScoringResult score,
+            CallForSpeechScoringResult scoreResult,
             Registration registration,
             Decision preliminaryDecision,
             Decision finalDecision,
@@ -59,7 +62,7 @@ namespace GeekLemonConference.Domain.Entity
             Id = callForSpeechId;
             Number = number;
             Status = status;
-            Score = score;
+            ScoreResult = scoreResult;
             Speech = speech;
             Speaker = speaker;
             Registration = registration;
@@ -82,8 +85,8 @@ namespace GeekLemonConference.Domain.Entity
                 throw new ApplicationException("Cannot accept application that isn't new");
             }
 
-            Score = rules.Evaluate(this);
-            if (!Score.IsRed())
+            ScoreResult = rules.Evaluate(this);
+            if (!ScoreResult.IsRed())
             {
                 Status = CallForSpeechStatus.EvaluatedByMachine;
             }
@@ -100,8 +103,8 @@ namespace GeekLemonConference.Domain.Entity
                 return ExecutionStatus.LogicError("Cannot accept application that isn't new");
             }
 
-            Score = rules.Evaluate(this);
-            if (!Score.IsRed())
+            ScoreResult = rules.Evaluate(this);
+            if (!ScoreResult.IsRed())
             {
                 Status = CallForSpeechStatus.EvaluatedByMachine;
             }
@@ -124,7 +127,7 @@ namespace GeekLemonConference.Domain.Entity
                 throw new ApplicationException("Cannot accept application that WASNT'T in EvaluatedByMachine");
             }
 
-            if (Score == null)
+            if (ScoreResult == null)
             {
                 throw new ApplicationException("Cannot accept application before scoring");
             }
@@ -151,7 +154,7 @@ namespace GeekLemonConference.Domain.Entity
                 return ExecutionStatus.LogicError("Cannot accept application that WASNT'T in EvaluatedByMachine");
             }
 
-            if (Score == null)
+            if (ScoreResult == null)
             {
                 return ExecutionStatus.LogicError("Cannot accept application before scoring");
             }
@@ -186,7 +189,7 @@ namespace GeekLemonConference.Domain.Entity
                 throw new ApplicationException("Cannot accept application that wasn't PreliminaryAccepted FIRST");
             }
 
-            if (Score == null)
+            if (ScoreResult == null)
             {
                 throw new ApplicationException("Cannot accept application before scoring");
             }
@@ -220,7 +223,7 @@ namespace GeekLemonConference.Domain.Entity
                     LogicError("Cannot accept application that wasn't PreliminaryAccepted FIRST");
             }
 
-            if (Score == null)
+            if (ScoreResult == null)
             {
                 return ExecutionStatus.
                     LogicError("Cannot accept application before scoring");

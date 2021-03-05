@@ -59,12 +59,12 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.Command.EvaluateC
             if (!result.Success)
                 return new EvaluateCallForSpeechCommandResponse(result);
 
-            var saveop = await _callRepository.SaveEvaluatationAsync(idc, cfs.Score, cfs.Status);
+            var saveop = await _callRepository.SaveEvaluatationAsync(idc, cfs.ScoreResult, cfs.Status);
 
             if (!saveop.Success)
                 return new EvaluateCallForSpeechCommandResponse(saveop);
 
-            var scoredto = _mapper.Map<ScoreDto>(cfs.Score);
+            var scoredto = _mapper.Map<ScoreDto>(cfs.ScoreResult);
             return new EvaluateCallForSpeechCommandResponse(scoredto);
         }
 

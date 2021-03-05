@@ -52,13 +52,13 @@ namespace GeekLemonConference.Tests.Asserts
 
         public AndConstraint<CallForSpeechAssert> ScoreIsNull()
         {
-            Subject.Score.Should().BeNull();
+            Subject.ScoreResult.Should().BeNull();
             return new AndConstraint<CallForSpeechAssert>(this);
         }
 
         public AndConstraint<CallForSpeechAssert> ScoreIs(CallForSpeechMachineScore expectedScore)
         {
-            Subject.Score?.Score.Should().Be(expectedScore);
+            Subject.ScoreResult?.Score.Should().Be(expectedScore);
             return new AndConstraint<CallForSpeechAssert>(this);
         }
 

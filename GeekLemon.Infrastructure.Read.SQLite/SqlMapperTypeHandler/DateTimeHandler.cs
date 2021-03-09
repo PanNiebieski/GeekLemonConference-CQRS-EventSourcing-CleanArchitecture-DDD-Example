@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeekLemon.Persistence.Dapper.SQLite
+namespace GeekLemonConference.Persistence.Dapper.SQLite.SqlMapperTypeHandler
 {
     public class DateTimeHandler : SqlMapper.TypeHandler<DateTimeOffset>
     {
-        private readonly TimeZoneInfo databaseTimeZone = TimeZoneInfo.Local;
         public static readonly DateTimeHandler Default = new DateTimeHandler();
-
+        private readonly TimeZoneInfo databaseTimeZone = TimeZoneInfo.Local;
         public DateTimeHandler()
         {
 
@@ -34,7 +33,7 @@ namespace GeekLemon.Persistence.Dapper.SQLite
 
         public override void SetValue(IDbDataParameter parameter, DateTimeOffset value)
         {
-            DateTime paramVal = value.ToOffset(this.databaseTimeZone.BaseUtcOffset).DateTime;
+            DateTime paramVal = value.ToOffset(databaseTimeZone.BaseUtcOffset).DateTime;
             parameter.Value = paramVal;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using GeekLemon.Infrastructure.Read.SQLite;
 using GeekLemon.Infrastructure.Read.SQLite.Repositories;
 using GeekLemon.Persistence.Dapper.SQLite;
 using GeekLemonConference.Application.Contracts.Persistence.WithES;
@@ -8,7 +9,9 @@ using GeekLemonConference.Persistence.Dapper.SQLite.Methods.Categories;
 using GeekLemonConference.Persistence.Dapper.SQLite.Methods.Interfaces.Categories;
 using GeekLemonConference.Persistence.Dapper.SQLite.Methods.Interfaces.Judges;
 using GeekLemonConference.Persistence.Dapper.SQLite.Methods.Judges;
+using GeekLemonConference.Persistence.Dapper.SQLite.Repositories;
 using GeekLemonConference.Persistence.Dapper.SQLite.Repositories.CallForSpeeches;
+using GeekLemonConference.Persistence.Dapper.SQLite.SqlMapperTypeHandler;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,7 +19,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace GeekLemon.Infrastructure.Read.SQLite
+namespace GeekLemonConference.Persistence.Dapper.SQLite
 {
     public static partial class GeekLemonConferenceInstallers
     {

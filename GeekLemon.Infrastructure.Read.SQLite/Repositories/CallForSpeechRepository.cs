@@ -10,7 +10,6 @@ using GeekLemonConference.Domain.Entity;
 using GeekLemonConference.Domain.ValueObjects;
 using GeekLemonConference.Domain.ValueObjects.Ids;
 using GeekLemonConference.Persistence.Dapper.SQLite.Methods.CallForSpeeches;
-using GeekLemonConference.Persistence.Dapper.SQLite.Repositories;
 using GeekLemonConference.Persistence.Dapper.SQLite.Repositories.CallForSpeeches;
 using Microsoft.Data.Sqlite;
 using System;
@@ -18,7 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeekLemon.Infrastructure.Read.SQLite
+namespace GeekLemonConference.Persistence.Dapper.SQLite.Repositories
 {
     public class CallForSpeechRepository : ICallForSpeechRepository
     {

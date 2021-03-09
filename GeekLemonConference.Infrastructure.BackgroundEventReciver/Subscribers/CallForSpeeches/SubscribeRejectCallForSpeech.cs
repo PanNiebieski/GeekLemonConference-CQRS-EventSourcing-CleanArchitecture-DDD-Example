@@ -43,7 +43,7 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subsc
 
             var execution = await
                 _ZEsCallForSpeechRepository
-                .SaveRejectionAsync(cfs.Id, cfs.FinalDecision.DecisionBy, cfs.Status);
+                .SaveRejectionAsync(cfs.UniqueId, cfs.FinalDecision.DecisionBy, cfs.Status);
 
             return execution;
         }

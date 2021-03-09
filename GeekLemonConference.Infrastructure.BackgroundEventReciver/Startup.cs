@@ -1,9 +1,9 @@
-using GeekLemon.Infrastructure.Read.SQLite;
 using GeekLemonConference.Infrastructure.BackgroundEventHandlersServer;
 using GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subscribers;
 using GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subscribers.CallForSpeeches;
 using GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subscribers.Categories;
 using GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subscribers.Judges;
+using GeekLemonConference.Persistence.Dapper.SQLite;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,7 +28,6 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventReciver
         {
             Configuration = configuration;
         }
-
 
         public void ConfigureServices(IServiceCollection services)
         {

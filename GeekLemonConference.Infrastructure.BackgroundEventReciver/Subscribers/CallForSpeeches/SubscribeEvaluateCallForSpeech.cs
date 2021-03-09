@@ -43,7 +43,7 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subsc
             var execution = await
                 _ZEsCallForSpeechRepository
                 .SaveEvaluatationAsync
-                (cfs.Id, cfs.ScoreResult, cfs.Status);
+                (cfs.UniqueId, cfs.ScoreResult, cfs.Status);
 
             return execution;
         }

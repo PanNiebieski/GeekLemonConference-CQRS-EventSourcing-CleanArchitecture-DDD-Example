@@ -38,6 +38,7 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subsc
             var json = Encoding.UTF8.GetString(body.Span);
             Console.WriteLine(string.Concat("Message: ", json));
             Console.ForegroundColor = ConsoleColor.Gray;
+
             _messageReceiverBasez.HandleBasicDeliver
                 (consumerTag, deliveryTag, redelivered, exchange, routingKey, properties, body);
 

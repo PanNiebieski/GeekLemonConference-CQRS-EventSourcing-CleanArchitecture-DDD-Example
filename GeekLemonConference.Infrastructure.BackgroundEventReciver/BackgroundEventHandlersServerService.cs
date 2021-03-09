@@ -35,7 +35,6 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer
             Logger = logger;
             _subscribes = subscribes;
 
-
             _ContentRootPath = env.ContentRootPath;
         }
 
@@ -124,15 +123,9 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer
             await base.StopAsync(cancellationToken);
         }
 
-        //private void LogPingReply(PingReply pingReply)
-        //{
-        //    Logger.Information($"PingReply status={pingReply.Status} roundTripTime={pingReply.RoundtripTime}");
-        //}
-
         private void LogError(string error)
         {
             Logger.Error(error);
         }
-
     }
 }

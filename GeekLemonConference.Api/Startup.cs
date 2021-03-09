@@ -1,9 +1,9 @@
-using GeekLemon.Infrastructure.Read.SQLite;
 using GeekLemonConference.Application;
 using GeekLemonConference.Application.CQRS;
 using GeekLemonConference.Infrastructure.EventStore.SQLite;
 using GeekLemonConference.Infrastructure.EventStoreAndBus;
 using GeekLemonConference.Infrastructure.EventStorePlugin.MongoDb;
+using GeekLemonConference.Persistence.Dapper.SQLite;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

@@ -20,13 +20,13 @@ namespace GeekLemonConference.Infrastructure.EventStoreAndBus
                 JudgeUpdatedEvent => Constants.QUEUE_JUDGE_UPDATED,
                 JudgeCreatedEvent => Constants.QUEUE_JUDGE_CREATED,
                 JudgeDeletedEvent => Constants.QUEUE_JUDGE_DELETED,
-                CategoryCreateEvent => Constants.QUEUE_CATEGORY_CREATED,
-                CategoryUpdateEvent => Constants.QUEUE_CATEGORY_UPDATED,
+                CategoryCreatedEvent => Constants.QUEUE_CATEGORY_CREATED,
+                CategoryUpdatedEvent => Constants.QUEUE_CATEGORY_UPDATED,
                 CallForSpeechAcceptedEvent => Constants.QUEUE_CALLFORSPEECH_ACCEPT,
                 CallForSpeechEvaulatedEvent => Constants.QUEUE_CALLFORSPEECH_EVALUATE,
-                CallForSpeechPreliminaryAcceptEvent => Constants.QUEUE_CALLFORSPEECH_PRELIMINARY_ACCEPT,
+                CallForSpeechPreliminaryAcceptedEvent => Constants.QUEUE_CALLFORSPEECH_PRELIMINARY_ACCEPT,
                 CallForSpeechRejectedEvent => Constants.QUEUE_CALLFORSPEECH_REJECTC,
-                CallForSpeechSubmitEvent => Constants.QUEUE_CALLFORSPEECH_SUBMITC,
+                CallForSpeechSubmitedEvent => Constants.QUEUE_CALLFORSPEECH_SUBMITC,
                 _ => throw new NotImplementedException(),
             };
 

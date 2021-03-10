@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace GeekLemonConference.DomainEvents.CallForSpeeches
 {
-    public class CallForSpeechSubmitEvent : DomainEvent
+    public class CallForSpeechSubmitedEvent : DomainEvent
     {
         public Speaker Speaker { get; init; }
         public Speech Speech { get; init; }
@@ -30,7 +30,7 @@ namespace GeekLemonConference.DomainEvents.CallForSpeeches
         public CallForSpeechUniqueId UniqueId { get; init; }
 
         [JsonConstructor]
-        public CallForSpeechSubmitEvent(Speaker speaker, Speech speech,
+        public CallForSpeechSubmitedEvent(Speaker speaker, Speech speech,
             Registration registration, CallForSpeechNumber number, Category category,
             CallForSpeechStatus status, CallForSpeechScoringResult scoreResult,
             Decision preliminaryDecision, Decision finalDecision, CallForSpeechUniqueId uniqueId,
@@ -50,7 +50,7 @@ namespace GeekLemonConference.DomainEvents.CallForSpeeches
             this.Key = UniqueId.GetAggregateKey();
         }
 
-        public CallForSpeechSubmitEvent()
+        public CallForSpeechSubmitedEvent()
         {
 
         }

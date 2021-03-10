@@ -20,8 +20,8 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Mappe
     {
         public MappingProfile()
         {
-            CreateMap<CategoryCreateEvent, Category>();
-            CreateMap<CategoryUpdateEvent, Category>();
+            CreateMap<CategoryCreatedEvent, Category>();
+            CreateMap<CategoryUpdatedEvent, Category>();
 
             CreateMap<JudgeCreatedEvent, Judge>();
             CreateMap<JudgeUpdatedEvent, Judge>();
@@ -29,9 +29,9 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Mappe
 
             CreateMap<CallForSpeechAcceptedEvent, CallForSpeech>();
             CreateMap<CallForSpeechEvaulatedEvent, CallForSpeech>();
-            CreateMap<CallForSpeechPreliminaryAcceptEvent, CallForSpeech>();
+            CreateMap<CallForSpeechPreliminaryAcceptedEvent, CallForSpeech>();
             CreateMap<CallForSpeechRejectedEvent, CallForSpeech>();
-            CreateMap<CallForSpeechSubmitEvent, CallForSpeech>();
+            CreateMap<CallForSpeechSubmitedEvent, CallForSpeech>();
 
         }
     }

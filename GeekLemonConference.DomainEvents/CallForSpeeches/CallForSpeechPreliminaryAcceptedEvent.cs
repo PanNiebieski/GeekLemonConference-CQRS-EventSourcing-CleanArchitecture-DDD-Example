@@ -11,7 +11,7 @@ using GeekLemonConference.Application.EventSourcing;
 
 namespace GeekLemonConference.Domain.DomainEvents
 {
-    public class CallForSpeechPreliminaryAcceptEvent : DomainEvent
+    public class CallForSpeechPreliminaryAcceptedEvent : DomainEvent
     {
 
 
@@ -30,7 +30,7 @@ namespace GeekLemonConference.Domain.DomainEvents
 
         public CallForSpeechUniqueId UniqueId { get; init; }
 
-        public CallForSpeechPreliminaryAcceptEvent(Speaker speaker, Speech speech,
+        public CallForSpeechPreliminaryAcceptedEvent(Speaker speaker, Speech speech,
             Registration registration, CallForSpeechNumber number, Category category,
             CallForSpeechStatus status, CallForSpeechScoringResult scoreResult,
             Decision preliminaryDecision, Decision finalDecision, CallForSpeechUniqueId uniqueId,

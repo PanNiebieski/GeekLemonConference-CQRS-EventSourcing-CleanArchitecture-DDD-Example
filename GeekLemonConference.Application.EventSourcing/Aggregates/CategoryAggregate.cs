@@ -20,7 +20,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
 
         public CategoryUniqueId UniqueId { get; private set; }
 
-        private void Apply(CategoryCreateEvent e)
+        private void Apply(CategoryCreatedEvent e)
         {
             Version = e.Version;
             Name = e.Name;
@@ -30,7 +30,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
             this.Key = e.UniqueId.GetAggregateKey();
         }
 
-        private void Apply(CategoryUpdateEvent e)
+        private void Apply(CategoryUpdatedEvent e)
         {
             Version = e.Version++;
             Name = e.Name;
@@ -42,7 +42,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
 
         public CategoryAggregate(Category cc)
         {
-            var c = new CategoryCreateEvent(cc.UniqueId, cc.Name,
+            var c = new CategoryCreatedEvent(cc.UniqueId, cc.Name,
                 cc.DisplayName, cc.WhatWeAreLookingFor,
                 cc.Version);
 
@@ -56,7 +56,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
 
         public void Update(Category cc)
         {
-            var c = new CategoryUpdateEvent(cc.UniqueId, cc.Name,
+            var c = new CategoryUpdatedEvent(cc.UniqueId, cc.Name,
                 cc.DisplayName, cc.WhatWeAreLookingFor,
                 cc.Version);
 

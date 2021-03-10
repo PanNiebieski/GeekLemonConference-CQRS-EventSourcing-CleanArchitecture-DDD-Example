@@ -28,12 +28,12 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subsc
 
         public override DomainEvent DeserializeObject(string json)
         {
-            return JsonConvert.DeserializeObject<CategoryUpdateEvent>(json);
+            return JsonConvert.DeserializeObject<CategoryUpdatedEvent>(json);
         }
 
         public override async Task<ExecutionStatus> HandleEvent(DomainEvent @event)
         {
-            CategoryUpdateEvent categoryCreateEvent = @event as CategoryUpdateEvent;
+            CategoryUpdatedEvent categoryCreateEvent = @event as CategoryUpdatedEvent;
 
             var category = _mapper.Map<Category>(categoryCreateEvent);
 

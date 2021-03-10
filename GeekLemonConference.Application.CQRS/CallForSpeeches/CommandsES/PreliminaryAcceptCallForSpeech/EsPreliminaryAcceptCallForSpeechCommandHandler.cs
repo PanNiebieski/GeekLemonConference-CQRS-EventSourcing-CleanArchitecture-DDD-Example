@@ -45,12 +45,10 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.Prelim
             var databaseOperationJudge = await _zEsJudgeRepository.GetByIdAsync(judgeId);
 
             if (!databaseOperationJudge.Success)
-            {
-                if (databaseOperationJudge.Reason == Reason.ReturnedNull)
-                    return new EsPreliminaryAcceptCallForSpeechCommandResponse(ResponseStatus.NotFoundInDataBase);
-                if (databaseOperationJudge.Reason == Reason.Error)
-                    return new EsPreliminaryAcceptCallForSpeechCommandResponse(ResponseStatus.DataBaseError);
-            }
+                return new EsPreliminaryAcceptCallForSpeechCommandResponse
+                    (databaseOperationJudge.RemoveGeneric(),
+                    "CallForSpeech Problem");
+
 
             var judge = databaseOperationJudge.Value;
 
@@ -63,10 +61,10 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.Prelim
 
             var aggregateCallForSpeaker = eventstoreResult.Value;
 
-            if (aggregateCallForSpeaker.Version > request.Version)
+            if ((eventstoreResult.Value.Version - 1) > (eventstoreResult.Version))
                 return new EsPreliminaryAcceptCallForSpeechCommandResponse
                     (ExecutionStatus.EventStoreConcurrencyError(@$"You sended old version.
-                    Yours {request.Version}. In Event database :{aggregateCallForSpeaker.Version}"));
+                    Yours {request.Version}. Should be :{aggregateCallForSpeaker.Version - 1}"));
 
 
             var csf = _mapper.Map<CallForSpeech>(aggregateCallForSpeaker);

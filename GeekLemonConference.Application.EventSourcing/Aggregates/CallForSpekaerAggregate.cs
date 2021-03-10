@@ -31,7 +31,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
         public Decision PreliminaryDecision { get; set; }
         public Decision FinalDecision { get; set; }
 
-        private void Apply(CallForSpeechSubmitEvent e)
+        private void Apply(CallForSpeechSubmitedEvent e)
         {
             Speaker = e.Speaker;
             Speech = e.Speech;
@@ -62,7 +62,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
             this.Key = e.UniqueId.GetAggregateKey();
         }
 
-        private void Apply(CallForSpeechPreliminaryAcceptEvent e)
+        private void Apply(CallForSpeechPreliminaryAcceptedEvent e)
         {
             Speaker = e.Speaker;
             Speech = e.Speech;
@@ -115,7 +115,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
 
         public CallForSpeechAggregate(CallForSpeech cc)
         {
-            var c = new CallForSpeechSubmitEvent
+            var c = new CallForSpeechSubmitedEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
                 cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,
@@ -137,7 +137,7 @@ namespace GeekLemonConference.Application.EventSourcing.Aggregates
 
         public void PreliminaryAccepted(CallForSpeech cc)
         {
-            var c = new CallForSpeechPreliminaryAcceptEvent
+            var c = new CallForSpeechPreliminaryAcceptedEvent
                 (cc.Speaker, cc.Speech, cc.Registration,
                 cc.Number, cc.Category, cc.Status, cc.ScoreResult,
                 cc.PreliminaryDecision, cc.FinalDecision,

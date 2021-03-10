@@ -31,12 +31,12 @@ namespace GeekLemonConference.Infrastructure.BackgroundEventHandlersServer.Subsc
 
         public override DomainEvent DeserializeObject(string json)
         {
-            return JsonConvert.DeserializeObject<CallForSpeechSubmitEvent>(json);
+            return JsonConvert.DeserializeObject<CallForSpeechSubmitedEvent>(json);
         }
 
         public async override Task<ExecutionStatus> HandleEvent(DomainEvent @event)
         {
-            CallForSpeechSubmitEvent callForSpeechSubmitEvent = @event as CallForSpeechSubmitEvent;
+            CallForSpeechSubmitedEvent callForSpeechSubmitEvent = @event as CallForSpeechSubmitedEvent;
 
             var cfs = _mapper.Map<CallForSpeech>(callForSpeechSubmitEvent);
 

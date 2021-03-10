@@ -31,16 +31,16 @@ namespace GeekLemonConference.Infrastructure.EventStorePlugin.MongoDb
 
         private static void ClassMapping()
         {
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CategoryUpdateEvent))) { BsonClassMap.RegisterClassMap<CategoryUpdateEvent>(); }
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CategoryCreateEvent))) { BsonClassMap.RegisterClassMap<CategoryCreateEvent>(); }
+            if (!BsonClassMap.IsClassMapRegistered(typeof(CategoryUpdatedEvent))) { BsonClassMap.RegisterClassMap<CategoryUpdatedEvent>(); }
+            if (!BsonClassMap.IsClassMapRegistered(typeof(CategoryCreatedEvent))) { BsonClassMap.RegisterClassMap<CategoryCreatedEvent>(); }
             if (!BsonClassMap.IsClassMapRegistered(typeof(JudgeCreatedEvent))) { BsonClassMap.RegisterClassMap<JudgeCreatedEvent>(); }
             if (!BsonClassMap.IsClassMapRegistered(typeof(JudgeUpdatedEvent))) { BsonClassMap.RegisterClassMap<JudgeUpdatedEvent>(); }
             if (!BsonClassMap.IsClassMapRegistered(typeof(JudgeDeletedEvent))) { BsonClassMap.RegisterClassMap<JudgeDeletedEvent>(); }
             if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechAcceptedEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechAcceptedEvent>(); }
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechPreliminaryAcceptEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechPreliminaryAcceptEvent>(); }
+            if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechPreliminaryAcceptedEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechPreliminaryAcceptedEvent>(); }
             if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechRejectedEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechRejectedEvent>(); }
             if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechEvaulatedEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechEvaulatedEvent>(); }
-            if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechSubmitEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechSubmitEvent>(); }
+            if (!BsonClassMap.IsClassMapRegistered(typeof(CallForSpeechSubmitedEvent))) { BsonClassMap.RegisterClassMap<CallForSpeechSubmitedEvent>(); }
         }
 
         public IClientSessionHandle StartSession()

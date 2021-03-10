@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GeekLemonConference.DomainEvents.Categories
 {
-    public class CategoryCreateEvent : DomainEvent
+    public class CategoryUpdatedEvent : DomainEvent
     {
         public CategoryUniqueId UniqueId { get; init; }
 
@@ -20,7 +20,7 @@ namespace GeekLemonConference.DomainEvents.Categories
 
         public string WhatWeAreLookingFor { get; init; }
 
-        public CategoryCreateEvent(CategoryUniqueId uniqueId,
+        public CategoryUpdatedEvent(CategoryUniqueId uniqueId,
             string name, string displayName, string whatWeAreLookingFor,
             int version)
             : base(version)
@@ -32,7 +32,5 @@ namespace GeekLemonConference.DomainEvents.Categories
             Name = name;
             WhatWeAreLookingFor = whatWeAreLookingFor;
         }
-
     }
-
 }

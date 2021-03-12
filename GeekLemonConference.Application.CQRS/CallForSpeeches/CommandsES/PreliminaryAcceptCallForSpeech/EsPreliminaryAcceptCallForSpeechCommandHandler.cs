@@ -61,7 +61,7 @@ namespace GeekLemonConference.Application.CQRS.CallForSpeeches.CommandsES.Prelim
 
             var aggregateCallForSpeaker = eventstoreResult.Value;
 
-            if ((eventstoreResult.Value.Version - 1) > (eventstoreResult.Version))
+            if ((eventstoreResult.Value.Version - 1) > (request.Version))
                 return new EsPreliminaryAcceptCallForSpeechCommandResponse
                     (ExecutionStatus.EventStoreConcurrencyError(@$"You sended old version.
                     Yours {request.Version}. Should be :{aggregateCallForSpeaker.Version - 1}"));

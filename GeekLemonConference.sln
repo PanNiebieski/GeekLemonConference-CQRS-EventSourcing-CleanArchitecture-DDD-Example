@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D60894AC-36D4-4A28-8588-9221B200876B}"
 EndProject
@@ -48,6 +48,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.IntegrationTests.Persistence", "GeekLemonConference.Tests.PersistenceIntegration\GeekLemonConference.IntegrationTests.Persistence.csproj", "{8E39F2D9-493C-46A8-8595-1E3BE606B62A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeekLemonConference.Tests.Common", "GeekLemonConference.Tests.Common\GeekLemonConference.Tests.Common.csproj", "{BCBCA931-AE4D-430D-B267-00EC309083DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeekLemonConference.ApiMinimal", "GeekLemonConference.ApiMinimal\GeekLemonConference.ApiMinimal.csproj", "{922CEB71-03AD-49BE-8D3A-4DB9F24CE60C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +117,10 @@ Global
 		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCBCA931-AE4D-430D-B267-00EC309083DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{922CEB71-03AD-49BE-8D3A-4DB9F24CE60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922CEB71-03AD-49BE-8D3A-4DB9F24CE60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922CEB71-03AD-49BE-8D3A-4DB9F24CE60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922CEB71-03AD-49BE-8D3A-4DB9F24CE60C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{384F2B37-5199-436D-8E17-4FBEF2694F69} = {BE47A2C8-BDAA-428D-8D1E-250798CF8BE4}
 		{8E39F2D9-493C-46A8-8595-1E3BE606B62A} = {D3949890-D70D-4F1B-8820-2E1B7D9849B0}
 		{BCBCA931-AE4D-430D-B267-00EC309083DD} = {D3949890-D70D-4F1B-8820-2E1B7D9849B0}
+		{922CEB71-03AD-49BE-8D3A-4DB9F24CE60C} = {D60894AC-36D4-4A28-8588-9221B200876B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59580AD5-8A86-43FA-9A00-3FCC8284D7F4}

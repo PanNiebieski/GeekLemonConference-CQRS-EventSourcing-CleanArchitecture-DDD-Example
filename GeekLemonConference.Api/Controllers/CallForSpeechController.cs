@@ -18,6 +18,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using GeekLemonConference.Application.CQRS;
 using GeekLemonConference.Api.Models;
+using System.Web.Http.Results;
+using StatusCodeResult = Microsoft.AspNetCore.Mvc.StatusCodeResult;
 
 namespace GeekLemonConference.Api.Controllers
 {
@@ -210,18 +212,11 @@ namespace GeekLemonConference.Api.Controllers
         {
             var result = await _mediator.Send(ccceptCallForSpeechCommand);
 
-            if (result.Status == ResponseStatus.BussinesLogicError)
-                return Forbid();
-            if (result.Status == ResponseStatus.NotFoundInDataBase)
-                return NotFound();
-            if (result.Status == ResponseStatus.ValidationError)
-                return BadRequest();
-            if (result.Status == ResponseStatus.BadQuery)
-                return BadRequest();
-            if (!result.Success)
-                return MethodFailure(result.Message);
-
-            return NoContent();
+            var action = ChooseFailStatusBaseOnResult(result.Status, result.Success, result.Message);
+            if (action == null)
+                return NoContent();
+            else
+                return action;          
         }
 
         [HttpPost("preliminaryaccept", Name = "preliminaryacceptcallforspeech")]
@@ -235,22 +230,30 @@ namespace GeekLemonConference.Api.Controllers
         {
             var result = await _mediator.Send(preliminaryCallForSpeechCommand);
 
-            if (result.Status == ResponseStatus.BussinesLogicError)
-                return Forbid();
-            if (result.Status == ResponseStatus.NotFoundInDataBase)
-                return NotFound();
-            if (result.Status == ResponseStatus.ValidationError)
-                return BadRequest();
-            if (result.Status == ResponseStatus.BadQuery)
-                return BadRequest();
-            if (!result.Success)
-                return MethodFailure(result.Message);
-
-            return NoContent();
+            var action = ChooseFailStatusBaseOnResult(result.Status, result.Success, result.Message);
+            if (action == null)
+                return NoContent();
+            else
+                return action;
         }
 
 
+        private ActionResult ChooseFailStatusBaseOnResult(ResponseStatus status, bool IsSuccess, string message)
+        {
+            if (status == ResponseStatus.BussinesLogicError)
+                return Forbid();
+            if (status == ResponseStatus.NotFoundInDataBase)
+                return NotFound();
+            if (status == ResponseStatus.ValidationError)
+                return BadRequest();
+            if (status == ResponseStatus.BadQuery)
+                return BadRequest();
+            if (!IsSuccess)
+               return MethodFailure(message);
+            return null;
+        }
 
+    
 
     }
 }
